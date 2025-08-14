@@ -1,8 +1,3 @@
----
-layout: default
-title: "ShaifSec – Portfolio"
-description: "Shaif Ali – AppSec & PenTester"
----
 
 # Shaif Ali (he/him)
 **PenTester**  
