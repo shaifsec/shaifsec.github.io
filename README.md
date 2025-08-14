@@ -1,6 +1,6 @@
 
 # Shaif Ali (he/him)
-**PenTester**  
+**Web App Security**  
 [LinkedIn](https://www.linkedin.com/in/shaifsec/)  
 
 ---
