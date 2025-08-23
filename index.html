@@ -18,7 +18,7 @@
     header {
         text-align: center;
         padding: 5rem 2rem;
-        background: url('shafiec-cover.png') no-repeat center center/cover;
+        background: url('github-cover.png') no-repeat center center/cover;
         color: #fff;
     }
     header h1 {
@@ -31,6 +31,27 @@
     header p {
         font-size: 1.3rem;
         color: #b0b8c0;
+        margin-bottom: 1rem;
+    }
+
+    /* Blog Button */
+    .blog-btn {
+        display: inline-block;
+        margin-top: 1rem;
+        padding: 0.6rem 1.4rem;
+        border-radius: 8px;
+        font-weight: bold;
+        font-size: 1.1rem;
+        color: #00e6e6;
+        border: 1px solid #00e6e6;
+        text-decoration: none;
+        transition: 0.3s;
+        box-shadow: 0 0 10px rgba(0, 230, 230, 0.5);
+    }
+    .blog-btn:hover {
+        background: #00e6e6;
+        color: #0a0f1c;
+        box-shadow: 0 0 18px #00e6e6;
     }
 
     /* --- SECTION TITLES --- */
@@ -101,6 +122,8 @@
 <header>
     <h1>ShaifSec</h1>
     <p>💻 PenTester | Web App Security</p>
+    <!-- Blog Button -->
+    <a href="https://shaifsec.medium.com/" target="_blank" class="blog-btn">Blog</a>
 </header>
 
 <div class="container">
@@ -119,10 +142,9 @@
 
     <h2>Skills</h2>
     <div class="skills">
-        <span class="badge">Web Application Security</span>
-         <span class="badge">API Pentesting</span>
-        <span class="badge">Network Security</span>
-        <span class="badge">AWS Security</span>
+        <span class="badge">🌐 Web Application Security</span>
+        <span class="badge">🔒 Network Security</span>
+        <span class="badge">☁ AWS Security</span>
         <span class="badge">Vulnerability Assessment</span>
     </div>
 
@@ -133,7 +155,6 @@
         <span class="badge">Wireshark</span>
         <span class="badge">Nmap</span>
         <span class="badge">Splunk</span>
-        <span class="badge">Metasploit</span>
     </div>
 
     <h2>Framework</h2>
