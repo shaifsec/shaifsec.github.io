@@ -7,75 +7,100 @@
 <style>
     body {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background-color: #0d1117;
+        background-color: #0a0f1c;
         color: #c9d1d9;
         margin: 0;
         padding: 0;
         line-height: 1.6;
     }
+
+    /* --- HEADER --- */
     header {
         text-align: center;
-        padding: 2rem;
-        background: linear-gradient(90deg, #0f2027, #203a43, #2c5364);
+        padding: 5rem 2rem;
+        background: url('shafiec-cover.png') no-repeat center center/cover;
+        color: #fff;
     }
-    h1 {
-        color: #58a6ff;
+    header h1 {
+        font-size: 3rem;
+        font-weight: 800;
+        color: #00e6e6;  /* neon cyan */
         margin-bottom: 0.5rem;
+        text-shadow: 0 0 15px #00e6e6;
     }
+    header p {
+        font-size: 1.3rem;
+        color: #b0b8c0;
+    }
+
+    /* --- SECTION TITLES --- */
     h2 {
-        color: #f39c12;
-        margin-top: 2rem;
-        border-bottom: 2px solid #444;
-        padding-bottom: 0.3rem;
+        color: #00e6e6;
+        margin-top: 2.5rem;
+        border-bottom: 2px solid #1f2a3a;
+        padding-bottom: 0.4rem;
+        text-shadow: 0 0 10px #009999;
     }
-    p {
-        font-size: 1.1rem;
-    }
+
     .container {
-        max-width: 900px;
+        max-width: 950px;
         margin: auto;
         padding: 2rem;
     }
+
+    p {
+        font-size: 1.1rem;
+    }
+
+    /* --- BADGES (Skills/Tools/Frameworks) --- */
     .skills, .tools {
         display: flex;
         flex-wrap: wrap;
         gap: 0.8rem;
+        margin-top: 1rem;
     }
     .badge {
-        background: #21262d;
-        padding: 0.5rem 1rem;
-        border-radius: 8px;
-        color: #58a6ff;
-        border: 1px solid #30363d;
+        background: rgba(15, 32, 47, 0.8);
+        padding: 0.6rem 1.2rem;
+        border-radius: 10px;
+        color: #00e6e6;
+        border: 1px solid #00e6e6;
         font-weight: bold;
-        transition: 0.3s;
+        transition: 0.3s ease-in-out;
+        box-shadow: 0 0 8px rgba(0, 230, 230, 0.4);
     }
     .badge:hover {
-        background: #58a6ff;
-        color: #0d1117;
+        background: #00e6e6;
+        color: #0a0f1c;
+        box-shadow: 0 0 20px #00e6e6;
         cursor: pointer;
     }
+
+    /* --- FOOTER --- */
     footer {
         text-align: center;
-        padding: 1.5rem;
-        background: #161b22;
-        color: #8b949e;
-        margin-top: 2rem;
+        padding: 2rem;
+        background: #0d1117;
+        color: #7d8590;
+        margin-top: 3rem;
+        border-top: 1px solid #1f2a3a;
     }
     a {
-        color: #58a6ff;
+        color: #00e6e6;
         text-decoration: none;
+        font-weight: 600;
     }
     a:hover {
         color: #f39c12;
+        text-shadow: 0 0 8px #f39c12;
     }
 </style>
 </head>
 <body>
 
 <header>
-    <h1>Shaif Ali <span style="color:#f39c12;">(He/Him)</span></h1>
-    <p>💻 PenTester | Cybersecurity Enthusiastic</p>
+    <h1>ShaifSec</h1>
+    <p>💻 PenTester | Web App Security</p>
 </header>
 
 <div class="container">
@@ -94,31 +119,32 @@
 
     <h2>Skills</h2>
     <div class="skills">
-        <span class="badge">🌐 Web Application Security</span>
-        <span class="badge">🔒 Network Security</span>
-        <span class="badge">☁ AWS Security</span>
+        <span class="badge">Web Application Security</span>
+         <span class="badge">API Pentesting</span>
+        <span class="badge">Network Security</span>
+        <span class="badge">AWS Security</span>
         <span class="badge">Vulnerability Assessment</span>
     </div>
 
     <h2>Tools</h2>
     <div class="tools">
-        <span class="badge"> Burp Suite</span>
-        <span class="badge"> Nessus</span>
-        <span class="badge"> Wireshark</span>
-        <span class="badge"> Nmap</span>
-        <span class="badge"> Splunk</span>
-        
+        <span class="badge">Burp Suite</span>
+        <span class="badge">Nessus</span>
+        <span class="badge">Wireshark</span>
+        <span class="badge">Nmap</span>
+        <span class="badge">Splunk</span>
+        <span class="badge">Metasploit</span>
     </div>
 
     <h2>Framework</h2>
     <div class="tools">
-        <span class="badge"> OWASP Top 10</span>
-        <span class="badge"> MITRE ATT&CK</span>  
+        <span class="badge">OWASP Top 10</span>
+        <span class="badge">MITRE ATT&CK</span>  
     </div>
     
     <h2>Connect Me</h2>
     <p>
-        📧 <a href="mailto:shaifsec@gmail.com.com">shaifsec@gmail.com</a><br>
+        📧 <a href="mailto:shaifsec@gmail.com">shaifsec@gmail.com</a><br>
         🔗 <a href="https://t.me/shaifsec" target="_blank">Telegram</a>
         🔗 <a href="https://github.com/shaifsec" target="_blank">GitHub</a>
         🔗 <a href="https://www.linkedin.com/in/shaifsec/" target="_blank">LinkedIn</a>
