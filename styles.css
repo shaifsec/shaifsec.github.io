@@ -1,0 +1,57 @@
+/* styles.css — keep design separate from markup */
+.mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, 'Roboto Mono', monospace; }
+
+/* Theme colors (keeps tailwind look but in separate file) */
+:root{
+  --bg: #0b1020;
+  --panel: rgba(255,255,255,0.03);
+  --text: #e6eef8;
+  --btn: #1f6feb;
+  --btn-hover: #c92b2b;
+  --panel-shadow: 0 6px 20px rgba(0,0,0,0.6);
+}
+[data-theme="light"]{
+  --bg:#0073e6;
+  --panel:rgba(255,255,255,0.12);
+  --text:#ffffff;
+  --btn:#0073e6;
+  --btn-hover:#c92b2b;
+  --panel-shadow:0 6px 18px rgba(0,0,0,0.25);
+}
+
+/* Page structure */
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+.container { max-width: 900px; margin: 16px auto; padding: 20px; background: var(--panel); border-radius: 10px; box-shadow: var(--panel-shadow); }
+.dork-btn {
+  background-color: var(--btn);
+  color: var(--text);
+  padding: 10px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin: 6px 6px 6px 0;
+  font-size: 14px;
+  transition: background-color 0.18s ease, transform 0.08s ease;
+}
+.dork-btn:hover { background-color: var(--btn-hover); transform: translateY(-1px); }
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  box-sizing: border-box;
+  background: rgba(255,255,255,0.02);
+  color: var(--text);
+}
+pre.query { background: rgba(0,0,0,0.25); padding: 10px; border-radius: 6px; overflow-x: auto; margin-top: 12px; white-space: pre-wrap; word-break: break-word; }
+.note { font-size: 13px; color: rgba(255,255,255,0.75); margin-top:8px; }
+.topbar { display:flex; justify-content:space-between; align-items:center; gap:12px; }
+.theme-toggle { background:transparent; border:1px solid rgba(255,255,255,0.08); padding:6px 10px; border-radius:6px; cursor:pointer; color:var(--text); }
+.theme-toggle:hover { background: rgba(255,255,255,0.02); }

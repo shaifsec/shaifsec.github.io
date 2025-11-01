@@ -1,181 +1,103 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ShaifSec – Portfolio</title>
-<style>
-    body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background-color: #ffffff;
-        color: #070707;
-        margin: 0;
-        padding: 0;
-        line-height: 1.6;
-    }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Advanced Google Dorking — ShaifSec</title>
 
-    /* --- HEADER --- */
-    header {
-        text-align: center;
-        padding: 9rem 3rem;
-        background: url('banner-1.png') no-repeat center center/cover;
-        color: #0f0f0f;
-    }
-    /* Removed h1 styling */
-    header p {
-        font-size: 1.3rem;
-        color: #0e0d0d;
-        margin-bottom: 1rem;
-    }
+  <!-- Tailwind (optional) -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
-    /* Blog Button */
-    .blog-btn {
-        display: inline-block;
-        margin-top: 1rem;
-        padding: 0.6rem 1.4rem;
-        border-radius: 8px;
-        font-weight: bold;
-        font-size: 1.1rem;
-        color: #000000;
-        border: 1px solid #080808;
-        text-decoration: none;
-        transition: 0.3s;
-        box-shadow: 0 0 10px rgba(0, 230, 230, 0.5);
-    }
-    .blog-btn:hover {
-        background: #e60020;
-        color: #0a0f1c;
-        box-shadow: 0 0 18px #e60020;
-    }
-
-    /* --- SECTION TITLES --- */
-    h2 {
-        color: #960000;
-        margin-top: 2.5rem;
-        border-bottom: 2px solid #ffffff;
-        padding-bottom: 0.4rem;
-        text-shadow: 0 0 10px #e60020;
-    }
-
-    .container {
-        max-width: 950px;
-        margin: auto;
-        padding: 2rem;
-    }
-
-    p {
-        font-size: 1.1rem;
-    }
-
-    /* --- BADGES (Skills/Tools/Frameworks) --- */
-    .skills, .tools {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.8rem;
-        margin-top: 1rem;
-    }
-    .badge {
-        background: rgba(255, 255, 255, 0.8);
-        padding: 0.6rem 1.2rem;
-        border-radius: 10px;
-        color: #020202;
-        border: 1px solid #000000;
-        font-weight: bold;
-        transition: 0.3s ease-in-out;
-        box-shadow: 0 0 8px #e60020;
-    }
-    .badge:hover {
-        background: #e60020;
-        color: #ffffff;
-        box-shadow: 0 0 20px #e60020;
-        cursor: pointer;
-    }
-
-    /* --- FOOTER --- */
-    footer {
-        text-align: center;
-        padding: 2rem;
-        background: #960000;
-        color: #ffffff;
-        margin-top: 3rem;
-        border-top: 1px solid #1f2a3a;
-    }
-    a {
-        color: #000000;
-        text-decoration: none;
-        font-weight: 600;
-    }
-    a:hover {
-        color: #e60020;
-        text-shadow: 0 0 8px #e60020;
-    }
-</style>
+  <!-- Link to external CSS -->
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="bg-slate-900 text-slate-100 min-h-screen" data-theme="dark">
+  <div class="max-w-4xl mx-auto p-6">
+    <header class="mb-6 flex items-center justify-between">
+      <h1 class="text-2xl font-bold">Advanced Google Dork Builder — Upgraded</h1>
+      <div class="text-xs text-slate-400">Use only on authorized targets • ShaifSec</div>
+    </header>
 
-<header>
-    <!-- <h1>ShaifSec</h1> -->
-     <!--<p>Jr.PenTester | Bug Hunter</p>-->
-</header>
-
-<div class="container">
-
-    <h2>Intro</h2>
-    <p>Hi, I'm <strong>Shaif Ali</strong>, a passionate <strong>Web Application Security Researcher</strong> and <strong>PenTester</strong>. 
-    I specialize in finding vulnerabilities and making the web a safer place. My mission is to combine deep technical knowledge with ethical hacking skills to protect businesses and individuals.</p>
-
-    <h2>Experience</h2>
-    <p><strong>Penetration Testing Intern @Hacktify</strong> – 1 Month (2024)</p>
-    <ul>
-        <li>Conducted Web Application and Network Security Assessments</li>
-        <li>OSINT and cryptography for intelligence and data security</li>
-        <li>Documented vulnerabilities and provided remediation steps</li>
-    </ul>
-    <p><strong>Bug Hunting</strong> Present</p>
-    <ul>
-        <li>Hunting bugs ethically and reporting them responsibly</li>
-    </ul>
-
-    <h2>Skills</h2>
-    <div class="skills">
-        <span class="badge"> Web Application Security</span>
-        <span class="badge"> Network Penetration Testing</span>
-        <span class="badge"> API Security</span>
-        <span class="badge"> Cloud Security</span>
+    <div class="bg-slate-800 p-4 rounded-lg mb-4">
+      <label class="block text-sm text-slate-300 mb-1">Target domain</label>
+      <input type="text" id="targetDomain" class="w-full p-2 rounded bg-slate-900 border border-slate-700 mono" />
+      <p class="text-xs text-slate-400 mt-2">Default <code>target.com</code>. Replace with your authorized target before using any dorks.</p>
     </div>
 
-    <h2>Tools</h2>
-    <div class="tools">
-        <span class="badge">Burp Suite</span>
-        <span class="badge">Nessus</span>
-        <span class="badge">Wireshark</span>
-        <span class="badge">Nmap</span>
-        <span class="badge">Splunk</span>
+    <div class="bg-slate-800 p-4 rounded-lg">
+      <h2 class="text-lg font-semibold mb-2">Pre-built Dorks</h2>
+
+      <div class="grid gap-2" id="dorkButtons">
+        <!-- Buttons call same-tab functions to avoid opening new tabs -->
+        <button class="dork-btn" onclick="openGoogleDorkSameTab('site:*.{{targetDomain}}')">Find Subdomains — <span class="mono">site:*.{{targetDomain}}</span></button>
+        <button class="dork-btn" onclick="openGoogleDorkSameTab('site:*.*.{{targetDomain}}')">Find Sub-Subdomains — <span class="mono">site:*.*.{{targetDomain}}</span></button>
+
+        <button class="dork-btn" onclick="openGoogleDorkSameTab('site:{{targetDomain}} inurl:login | inurl:signin | intitle:Login | intitle:&quot;sign in&quot; | inurl:auth')">Login Pages — <span class="mono">inurl:login | intitle:Login</span></button>
+        <button class="dork-btn" onclick="openGoogleDorkSameTab('site:{{targetDomain}} inurl:signup | inurl:register | intitle:Signup')">Signup Pages — <span class="mono">inurl:signup | inurl:register</span></button>
+
+        <button class="dork-btn" onclick="openGoogleDorkSameTab('site:{{targetDomain}} ext:doc | ext:docx | ext:odt | ext:rtf | ext:sxw | ext:psw | ext:ppt | ext:pptx | ext:pps | ext:csv')">Publicly exposed documents (office/csv)</button>
+
+        <button class="dork-btn" onclick="openGoogleDorkSameTab('site:{{targetDomain}} intitle:index.of')">Directory listing vulnerabilities — <span class="mono">intitle:index.of</span></button>
+        <button class="dork-btn" onclick="openWaybackSameTab()">Search Wayback Machine — <span class="mono">web.archive.org/web/*/{{targetDomain}}/*</span></button>
+
+        <button class="dork-btn" onclick="openGoogleDorkSameTab('site:{{targetDomain}} ext:xml | ext:conf | ext:cnf | ext:reg | ext:inf | ext:rdp | ext:cfg | ext:txt | ext:ora | ext:ini | ext:env')">Configuration files exposed</button>
+
+        <button class="dork-btn" onclick="openGoogleDorkSameTab('site:{{targetDomain}} ext:sql | ext:dbf | ext:mdb')">Database files exposed</button>
+
+        <button class="dork-btn" onclick="openGoogleDorkSameTab('site:{{targetDomain}} ext:bkf | ext:bkp | ext:bak | ext:old | ext:backup')">Backup and old files exposed</button>
+
+        <button class="dork-btn" onclick="openGoogleDorkSameTab('site:{{targetDomain}} intext:&quot;sql syntax near&quot; | intext:&quot;syntax error has occurred&quot; | intext:&quot;incorrect syntax near&quot; | intext:&quot;unexpected end of SQL command&quot; | intext:&quot;Warning: mysql_connect()&quot; | intext:&quot;Warning: mysql_query()&quot; | intext:&quot;Warning: pg_connect()&quot;')">SQL error messages</button>
+
+        <button class="dork-btn" onclick="openGoogleDorkSameTab('site:{{targetDomain}} &quot;PHP Parse error&quot; | &quot;PHP Warning&quot; | &quot;PHP Error&quot;')">PHP errors / warnings</button>
+
+        <button class="dork-btn" onclick="openGoogleDorkSameTab('site:{{targetDomain}} ext:php intitle:phpinfo &quot;published by the PHP Group&quot;')">phpinfo() pages</button>
+
+        <button class="dork-btn" onclick="openGoogleDorkSameTab('site:pastebin.com | site:paste2.org | site:pastehtml.com | site:slexy.org | site:snipplr.com | site:snipt.net | site:textsnip.com | site:bitpaste.app | site:justpaste.it {{targetDomain}}')">Search paste sites for domain mentions</button>
+
+        <button class="dork-btn" onclick="openGoogleDorkSameTab('site:github.com | site:gitlab.com &quot;{{targetDomain}}&quot;')">Search GitHub / GitLab for domain</button>
+
+        <button class="dork-btn" onclick="openGoogleDorkSameTab('site:stackoverflow.com &quot;{{targetDomain}}&quot;')">Search StackOverflow for domain mentions</button>
+      </div>
+
+      <p class="text-xs text-slate-400 mt-3">Tip: Google uses OR (|) and quotes for exact phrases. Use responsibly and only on targets you are authorized to test.</p>
     </div>
 
-    <h2>Framework</h2>
-    <div class="tools">
-        <span class="badge">OWASP Top 10</span>
-        <span class="badge">MITRE ATT&CK</span>  
-    </div>
-    
-    <h2>Connect Me</h2>
-    <p>
-        📧 <a href="mailto:shaifsec@gmail.com">shaifsec@gmail.com</a><br>
-        🔗 <a href="https://t.me/shaifsec" target="_blank">Telegram</a>
-        🔗 <a href="https://github.com/shaifsec" target="_blank">GitHub</a>
-        🔗 <a href="https://www.linkedin.com/in/shaifsec/" target="_blank">LinkedIn</a>
-    </p>
+    <footer class="mt-6 text-center text-xs text-slate-500">Made for ShaifSec • Upgraded dorks</footer>
+  </div>
 
-    <h2>Resource</h2>
-    <p>
-        <a href="https://shaifsec.medium.com/">Blog</a><br>
-    </p>
-</div>
+  <!-- load external JS -->
+  <script src="script.js"></script>
 
-<footer>
-    &copy; 2025 ShaifSec – Designed with ❤️ for Cybersecurity
-</footer>
+  <!-- Inline helpers to guarantee same-tab navigation and safe templating -->
+  <script>
+    // replace template placeholder
+    function tplReplaceInline(tpl, domain){
+      return tpl.replace(/{{targetDomain}}/g, domain);
+    }
 
+    // navigate to Google search in same tab (no new tab)
+    function openGoogleDorkSameTab(tpl){
+      const domain = (document.getElementById('targetDomain').value || '').trim();
+      if(!domain){ alert('Please enter a target domain'); return; }
+      const q = tplReplaceInline(tpl, domain);
+      // navigate in same tab
+      window.location.href = 'https://www.google.com/search?q=' + encodeURIComponent(q);
+    }
+
+    // Wayback same-tab
+    function openWaybackSameTab(){
+      const domain = (document.getElementById('targetDomain').value || '').trim();
+      if(!domain){ alert('Please enter a target domain'); return; }
+      const url = 'https://web.archive.org/web/*/' + encodeURIComponent(domain) + '/*';
+      window.location.href = url;
+    }
+
+    // set default target and ensure theme when page loads
+    document.addEventListener('DOMContentLoaded', ()=>{
+      const input = document.getElementById('targetDomain');
+      if(input && !input.value) input.value = 'target.com';
+      document.body.setAttribute('data-theme','dark');
+    });
+  </script>
 </body>
 </html>
