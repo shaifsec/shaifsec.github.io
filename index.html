@@ -1,103 +1,307 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Advanced Google Dorking — ShaifSec</title>
-
-  <!-- Tailwind (optional) -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Link to external CSS -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Independent cybersecurity professional. Web Application Security, API Testing, Network Security & Vulnerability Assessments. Shaif Ali - Security Researcher">
+  <meta name="keywords" content="cybersecurity, penetration testing, VAPT, security assessment, vulnerability testing, security researcher">
+  <meta name="author" content="Shaif Ali">
+  <title>Shaif Ali — Independent Cybersecurity & Penetration Testing Professional</title>
   <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-slate-900 text-slate-100 min-h-screen" data-theme="dark">
-  <div class="max-w-4xl mx-auto p-6">
-    <header class="mb-6 flex items-center justify-between">
-      <h1 class="text-2xl font-bold">Advanced Google Dork Builder — Upgraded</h1>
-      <div class="text-xs text-slate-400">Use only on authorized targets • ShaifSec</div>
-    </header>
-
-    <div class="bg-slate-800 p-4 rounded-lg mb-4">
-      <label class="block text-sm text-slate-300 mb-1">Target domain</label>
-      <input type="text" id="targetDomain" class="w-full p-2 rounded bg-slate-900 border border-slate-700 mono" />
-      <p class="text-xs text-slate-400 mt-2">Default <code>target.com</code>. Replace with your authorized target before using any dorks.</p>
-    </div>
-
-    <div class="bg-slate-800 p-4 rounded-lg">
-      <h2 class="text-lg font-semibold mb-2">Pre-built Dorks</h2>
-
-      <div class="grid gap-2" id="dorkButtons">
-        <!-- Buttons call same-tab functions to avoid opening new tabs -->
-        <button class="dork-btn" onclick="openGoogleDorkSameTab('site:*.{{targetDomain}}')">Find Subdomains — <span class="mono">site:*.{{targetDomain}}</span></button>
-        <button class="dork-btn" onclick="openGoogleDorkSameTab('site:*.*.{{targetDomain}}')">Find Sub-Subdomains — <span class="mono">site:*.*.{{targetDomain}}</span></button>
-
-        <button class="dork-btn" onclick="openGoogleDorkSameTab('site:{{targetDomain}} inurl:login | inurl:signin | intitle:Login | intitle:&quot;sign in&quot; | inurl:auth')">Login Pages — <span class="mono">inurl:login | intitle:Login</span></button>
-        <button class="dork-btn" onclick="openGoogleDorkSameTab('site:{{targetDomain}} inurl:signup | inurl:register | intitle:Signup')">Signup Pages — <span class="mono">inurl:signup | inurl:register</span></button>
-
-        <button class="dork-btn" onclick="openGoogleDorkSameTab('site:{{targetDomain}} ext:doc | ext:docx | ext:odt | ext:rtf | ext:sxw | ext:psw | ext:ppt | ext:pptx | ext:pps | ext:csv')">Publicly exposed documents (office/csv)</button>
-
-        <button class="dork-btn" onclick="openGoogleDorkSameTab('site:{{targetDomain}} intitle:index.of')">Directory listing vulnerabilities — <span class="mono">intitle:index.of</span></button>
-        <button class="dork-btn" onclick="openWaybackSameTab()">Search Wayback Machine — <span class="mono">web.archive.org/web/*/{{targetDomain}}/*</span></button>
-
-        <button class="dork-btn" onclick="openGoogleDorkSameTab('site:{{targetDomain}} ext:xml | ext:conf | ext:cnf | ext:reg | ext:inf | ext:rdp | ext:cfg | ext:txt | ext:ora | ext:ini | ext:env')">Configuration files exposed</button>
-
-        <button class="dork-btn" onclick="openGoogleDorkSameTab('site:{{targetDomain}} ext:sql | ext:dbf | ext:mdb')">Database files exposed</button>
-
-        <button class="dork-btn" onclick="openGoogleDorkSameTab('site:{{targetDomain}} ext:bkf | ext:bkp | ext:bak | ext:old | ext:backup')">Backup and old files exposed</button>
-
-        <button class="dork-btn" onclick="openGoogleDorkSameTab('site:{{targetDomain}} intext:&quot;sql syntax near&quot; | intext:&quot;syntax error has occurred&quot; | intext:&quot;incorrect syntax near&quot; | intext:&quot;unexpected end of SQL command&quot; | intext:&quot;Warning: mysql_connect()&quot; | intext:&quot;Warning: mysql_query()&quot; | intext:&quot;Warning: pg_connect()&quot;')">SQL error messages</button>
-
-        <button class="dork-btn" onclick="openGoogleDorkSameTab('site:{{targetDomain}} &quot;PHP Parse error&quot; | &quot;PHP Warning&quot; | &quot;PHP Error&quot;')">PHP errors / warnings</button>
-
-        <button class="dork-btn" onclick="openGoogleDorkSameTab('site:{{targetDomain}} ext:php intitle:phpinfo &quot;published by the PHP Group&quot;')">phpinfo() pages</button>
-
-        <button class="dork-btn" onclick="openGoogleDorkSameTab('site:pastebin.com | site:paste2.org | site:pastehtml.com | site:slexy.org | site:snipplr.com | site:snipt.net | site:textsnip.com | site:bitpaste.app | site:justpaste.it {{targetDomain}}')">Search paste sites for domain mentions</button>
-
-        <button class="dork-btn" onclick="openGoogleDorkSameTab('site:github.com | site:gitlab.com &quot;{{targetDomain}}&quot;')">Search GitHub / GitLab for domain</button>
-
-        <button class="dork-btn" onclick="openGoogleDorkSameTab('site:stackoverflow.com &quot;{{targetDomain}}&quot;')">Search StackOverflow for domain mentions</button>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="nav-brand">
+        <span class="brand-name">ShaifSec</span>
       </div>
-
-      <p class="text-xs text-slate-400 mt-3">Tip: Google uses OR (|) and quotes for exact phrases. Use responsibly and only on targets you are authorized to test.</p>
+      <ul class="nav-menu">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#why-us">Why Us</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="https://www.linkedin.com/newsletters/7383384429471285248/" target="_blank">Newsletter</a></li>
+      </ul>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </div>
+  </nav>
 
-    <footer class="mt-6 text-center text-xs text-slate-500">Made for ShaifSec • Upgraded dorks</footer>
-  </div>
+  <!-- Hero Section -->
+  <section id="hero" class="hero">
+    <div class="hero-wrapper">
+      <div class="hero-content">
+        <h1 class="hero-title">Improve Security Maturity</h1>
+        <p class="hero-subtitle">Secure your digital environment before attackers strike. We perform offensive testing across websites, APIs, and networks, combining red team operations with VAPT to identify vulnerabilities and strengthen defenses against modern cyber threats.</p>
+        <div class="hero-cta">
+          <a href="#contact" class="btn btn-primary">Request Assessment</a>
+          <a href="#services" class="btn btn-secondary">View Services</a>
+        </div>
+        <div class="hero-features">
+          <div class="feature">
+            <span class="feature-icon">⚡</span>
+            <span class="feature-text">Fast Turnaround</span>
+          </div>
+          <div class="feature">
+            <span class="feature-icon">🎯</span>
+            <span class="feature-text">Direct Contact</span>
+          </div>
+          <div class="feature">
+            <span class="feature-icon">📊</span>
+            <span class="feature-text">Detailed Reports</span>
+          </div>
+        </div>
+        
+        <!-- Advanced Stats -->
+        <div class="hero-stats">
+          <div class="stat-box">
+            <div class="stat-value" data-count="45">0</div>
+            <div class="stat-name">Engagements</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-value" data-count="28">0</div>
+            <div class="stat-name">Clients</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-value" data-count="850">0</div>
+            <div class="stat-name">Issues Resolved</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <img src="logo.png" alt="Security Shield Logo" class="hero-logo">
+      </div>
+    </div>
+  </section>
 
-  <!-- load external JS -->
+  <!-- Services Section -->
+  <section id="services" class="services">
+    <div class="container">
+      <h2 class="section-title">My Services</h2>
+      <p class="section-subtitle">Specialized security testing tailored to your needs.</p>
+      
+      <div class="services-grid">
+        <!-- Service 1 -->
+        <div class="service-card">
+          <div class="service-icon">📋</div>
+          <h3>Vulnerability Assessment</h3>
+          <p>Automated and manual vulnerability scanning. Prioritized risk assessment, severity rating, and actionable remediation recommendations.</p>
+          <ul class="service-features">
+            <li>✓ Automated Scanning</li>
+            <li>✓ Manual Verification</li>
+            <li>✓ Risk Prioritization</li>
+            <li>✓ Remediation Guidance</li>
+          </ul>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="service-card">
+          <div class="service-icon">🌐</div>
+          <h3>Web Application Security Testing</h3>
+          <p>Identify vulnerabilities in your web applications. OWASP Top 10 assessment, authentication bypass, business logic flaws, and more.</p>
+          <ul class="service-features">
+            <li>✓ OWASP Top 10 Testing</li>
+            <li>✓ Authentication & Authorization</li>
+            <li>✓ Session Management</li>
+            <li>✓ Input Validation</li>
+          </ul>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="service-card">
+          <div class="service-icon">🔌</div>
+          <h3>API Security Testing</h3>
+          <p>Secure your APIs against modern threats. REST & GraphQL testing, endpoint enumeration, token bypass, and data exposure assessment.</p>
+          <ul class="service-features">
+            <li>✓ REST/GraphQL Testing</li>
+            <li>✓ Authentication Flaws</li>
+            <li>✓ Rate Limiting</li>
+            <li>✓ Data Leakage</li>
+          </ul>
+        </div>
+
+        <!-- Service 4 -->
+        <div class="service-card">
+          <div class="service-icon">🛡️</div>
+          <h3>Network Security & Hardening</h3>
+          <p>Comprehensive network assessment including firewall testing, intrusion detection bypass, network segmentation, and infrastructure hardening.</p>
+          <ul class="service-features">
+            <li>✓ Network Enumeration</li>
+            <li>✓ Firewall Testing</li>
+            <li>✓ Intrusion Detection</li>
+            <li>✓ System Hardening</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Me Section -->
+  <section id="why-us" class="why-us">
+    <div class="container">
+      <h2 class="section-title">Why Choose Me</h2>
+      <p class="section-subtitle">Working independently means dedicated expertise and personalized service.</p>
+      
+      <div class="benefits-grid">
+        <div class="benefit-item">
+          <div class="benefit-icon">✓</div>
+          <h4>Certified Professional</h4>
+          <p>Industry-recognized certifications in security testing, penetration testing, and ethical hacking with years of hands-on experience.</p>
+        </div>
+
+        <div class="benefit-item">
+          <div class="benefit-icon">✓</div>
+          <h4>Comprehensive Reports</h4>
+          <p>Detailed findings with clear severity ratings, technical explanations, and practical remediation steps tailored for your organization.</p>
+        </div>
+
+        <div class="benefit-item">
+          <div class="benefit-icon">✓</div>
+          <h4>Direct Access & Communication</h4>
+          <p>Work directly with me—no intermediaries, no committees. Get immediate answers and personalized guidance throughout the engagement.</p>
+        </div>
+
+        <div class="benefit-item">
+          <div class="benefit-icon">✓</div>
+          <h4>Ethical & Legal</h4>
+          <p>All testing conducted under formal scope and engagement agreements with full confidentiality and professional integrity.</p>
+        </div>
+
+        <div class="benefit-item">
+          <div class="benefit-icon">✓</div>
+          <h4>Custom Methodology</h4>
+          <p>Testing tailored specifically to your industry, technology stack, risk profile, and business objectives.</p>
+        </div>
+
+        <div class="benefit-item">
+          <div class="benefit-icon">✓</div>
+          <h4>Ongoing Support</h4>
+          <p>Post-assessment support and guidance for vulnerability remediation, implementation, and continuous security improvements.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="testimonials">
+    <div class="container">
+      <h2 class="section-title">What Clients Say</h2>
+      
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p>"ShaifSec's thorough assessment uncovered critical vulnerabilities we hadn't detected. Highly professional and responsive team."</p>
+          <div class="testimonial-author">— John Doe, CTO at TechCorp</div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p>"The detailed reports and actionable recommendations helped us prioritize our security investments effectively."</p>
+          <div class="testimonial-author">— Sarah Smith, Security Manager at FinServe</div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p>"Professional, ethical, and thorough. We've engaged ShaifSec for multiple assessments and they never disappoint."</p>
+          <div class="testimonial-author">— Michael Chen, DevOps Lead at CloudInnovate</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2 class="section-title">Get In Touch</h2>
+      <p class="section-subtitle">Ready to secure your infrastructure? Let's discuss your security needs and find the perfect solution.</p>
+      
+      <div class="contact-wrapper">
+        <div class="contact-info">
+          <div class="contact-item">
+            <div class="contact-icon">📧</div>
+            <h4>Email</h4>
+            <p><a href="mailto:shaifsec@gmail.com">shaifsec@gmail.com</a></p>
+            <p class="contact-note">Expect response within 24 hours</p>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">🔗</div>
+            <h4>Connect</h4>
+            <div class="social-links">
+              <a href="https://linkedin.com/in/shaifsec" target="_blank" class="social-link">LinkedIn</a>
+              <a href="https://github.com/shaifsec" target="_blank" class="social-link">GitHub</a>
+              <a href="https://twitter.com/shaifsec" target="_blank" class="social-link">Twitter</a>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">⚡</div>
+            <h4>Quick Response</h4>
+            <p class="contact-note">Assessment inquiries prioritized. We respect your time.</p>
+          </div>
+        </div>
+
+        <form class="contact-form" id="contactForm">
+          <div class="form-row">
+            <div class="form-group">
+              <input type="email" name="email" placeholder="Your Email" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-submit">Send Inquiry</button>
+          </div>
+
+          <div class="form-group">
+            <input type="text" name="name" placeholder="Your Name" required>
+          </div>
+
+          <div class="form-group">
+            <input type="text" name="company" placeholder="Company (Optional)">
+          </div>
+
+          <div class="form-group">
+            <textarea name="message" placeholder="Describe your security concerns or testing requirements..." rows="5" required></textarea>
+          </div>
+
+          <div class="form-note">
+            <span>✓</span> We respect your privacy. No spam, ever.
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Me Section -->
+  <section id="about" class="about">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+      <p class="section-subtitle">I am an independent security professional dedicated to helping organizations identify and eliminate vulnerabilities before attackers exploit them.</p>
+      
+      <div class="about-description">
+        <div class="about-content-text">
+          <p>I specialize in comprehensive security testing across multiple domains to protect your digital infrastructure from evolving threats. My expertise spans across web application security, where I conduct advanced testing to identify OWASP Top 10 vulnerabilities, authentication bypass issues, injection attacks, cross-site scripting (XSS), session hijacking, and complex business logic flaws that could be exploited by attackers.</p>
+
+          <p>In the realm of API security, I provide thorough assessments of both REST and GraphQL APIs, identifying endpoint enumeration risks, authentication and authorization flaws, token bypass vulnerabilities, rate limiting issues, data exposure problems, and potential API abuse scenarios. I understand that modern applications rely heavily on APIs, and securing them is critical to your overall security posture.</p>
+
+          <p>Beyond application-level testing, I conduct comprehensive network security assessments and infrastructure hardening. This includes firewall evasion testing, intrusion detection system bypass evaluation, network segmentation assessment, port scanning, service enumeration, and detailed system hardening recommendations to reduce your attack surface.</p>
+
+          <p>My vulnerability assessment services combine both automated scanning and manual verification techniques. I don't just identify vulnerabilities—I prioritize them by risk, provide severity ratings, and deliver actionable remediation guidance so you can systematically address security gaps. My penetration testing services simulate real-world attacks to thoroughly test your defensive capabilities, from reconnaissance through exploitation and comprehensive post-breach analysis.</p>
+
+          <p>I also provide security hardening services that go beyond testing. Through configuration review and hardening of systems, applications, and infrastructure, I help you strengthen your security posture and significantly reduce your overall attack surface. Every engagement is treated as a strategic partnership where your security directly impacts your business success. With extensive experience in ethical hacking, penetration testing, and security research, I deliver practical, actionable insights tailored to your organization's unique risk profile and threat landscape.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Shaif Ali | Independent Security Professional. All rights reserved. | Ethical security testing for a safer digital world.</p>
+    </div>
+  </footer>
+
   <script src="script.js"></script>
-
-  <!-- Inline helpers to guarantee same-tab navigation and safe templating -->
-  <script>
-    // replace template placeholder
-    function tplReplaceInline(tpl, domain){
-      return tpl.replace(/{{targetDomain}}/g, domain);
-    }
-
-    // navigate to Google search in same tab (no new tab)
-    function openGoogleDorkSameTab(tpl){
-      const domain = (document.getElementById('targetDomain').value || '').trim();
-      if(!domain){ alert('Please enter a target domain'); return; }
-      const q = tplReplaceInline(tpl, domain);
-      // navigate in same tab
-      window.location.href = 'https://www.google.com/search?q=' + encodeURIComponent(q);
-    }
-
-    // Wayback same-tab
-    function openWaybackSameTab(){
-      const domain = (document.getElementById('targetDomain').value || '').trim();
-      if(!domain){ alert('Please enter a target domain'); return; }
-      const url = 'https://web.archive.org/web/*/' + encodeURIComponent(domain) + '/*';
-      window.location.href = url;
-    }
-
-    // set default target and ensure theme when page loads
-    document.addEventListener('DOMContentLoaded', ()=>{
-      const input = document.getElementById('targetDomain');
-      if(input && !input.value) input.value = 'target.com';
-      document.body.setAttribute('data-theme','dark');
-    });
-  </script>
 </body>
 </html>
