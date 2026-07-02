@@ -17,9 +17,9 @@
 
     /* Background */
     --bg-darker:#02050b;
-    --bg-dark:#00e5ff;
+    --bg-dark: #081321;
     --bg-card:rgba(9,22,40,.75);
-    --bg-card-hover:rgba(14,32,55,.95);
+    --bg-card-hover:#ff2d2d (14,32,55,.95);
 
     /* Text */
     --text-light:#fff;
