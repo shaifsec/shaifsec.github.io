@@ -63,6 +63,7 @@ body{
 }
 
 .container {
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 24px;
@@ -226,20 +227,29 @@ var(--glow-red),
    ======================================== */
 
 .hero {
-  margin-top: 70px;
-  padding: 100px 0;
-  min-height: calc(100vh - 70px);
+  min-height: 100vh;
   display: flex;
   align-items: center;
+  justify-content: center;
+
+  padding-top: 80px; /* replaces margin-top issue */
+  padding-bottom: 80px;
+
   position: relative;
 }
 
 .hero-wrapper {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 48px;
-  align-items: center;
   width: 100%;
+  max-width: 1200px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+
+  align-items: center;
+  justify-content: center;
+
+  margin: 0 auto;
 }
 
 .hero-badge {
