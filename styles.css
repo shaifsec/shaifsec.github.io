@@ -19,7 +19,7 @@
     --bg-darker:#02050b;
     --bg-dark: #081321;
     --bg-card:rgba(9,22,40,.75);
-    --bg-card-hover:#ff2d2d (14,32,55,.95);
+    --bg-card-hover: rgba(255, 45, 45, 0.12);
 
     /* Text */
     --text-light:#fff;
@@ -492,11 +492,13 @@ h1, h2, h3, h4, h5, h6 {
   flex-direction: column;
 }
 
-.service-card:hover {
-  background: var(--bg-card-hover);
-  border-color: rgba(0, 255, 157, 0.3);
-  transform: translateY(-4px);
-  box-shadow: 0 12px 30px rgba(0, 5, 15, 0.5);
+.service-card:hover,
+.benefit-item:hover,
+.testimonial-card:hover {
+  background: rgba(255, 45, 45, 0.08);
+  border-color: rgba(255, 45, 45, 0.4);
+  transform: translateY(-6px);
+  box-shadow: 0 0 25px rgba(255, 45, 45, 0.25);
 }
 
 .service-icon {
