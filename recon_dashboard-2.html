@@ -4,37 +4,30 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Web Recon by ShaifSec</title>
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Consolas,monospace}
-body{background:#050505;color:#fff;display:flex;justify-content:center;align-items:center;min-height:100vh}
-.container{width:90%;max-width:700px;background:#111;border:2px solid #ff0000;border-radius:15px;padding:30px;box-shadow:0 0 30px rgba(255,0,0,.4)}
-h1{text-align:center;color:#ff2b2b;margin-bottom:10px;text-shadow:0 0 10px red}
-.subtitle{text-align:center;color:#999;margin-bottom:25px}
-button{width:100%;padding:15px;margin:10px 0;background:#1a0000;color:#fff;border:2px solid #ff0000;border-radius:8px;font-size:17px;cursor:pointer;transition:.3s;font-weight:bold}
-button:hover{background:#ff0000;color:#000;transform:scale(1.03);box-shadow:0 0 20px red}
-.footer{margin-top:20px;text-align:center;color:#666;font-size:13px}
-</style>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <div class="container">
-<h1>⚠ Web Recon by ShaifSec ⚠</h1>
-<p class="subtitle">Quick Recon Links</p>
+  <h1 class="section-title">⚠ Web Recon by ShaifSec ⚠</h1>
+  <p class="section-subtitle">Quick Recon links for investigation and OSINT.</p>
 
-<button onclick="openSite('https://urlscan.io')">URLScan</button>
-<button onclick="openSite('https://nslookup.io')">NSLookup</button>
-<button onclick="openSite('https://subdomainfinder.c99.nl/scans/2026-06-21/target.com')">C99 Subdomain Finder</button>
-<button onclick="openSite('https://searchdns.netcraft.com/')">Netcraft DNS Search</button>
-<button onclick="openSite('https://web.archive.org/')">Wayback Machine</button>
-<button onclick="openSite('https://www.certkit.io/tools/ct-logs/')">CT Logs</button>
-<button onclick="openSite('https://builtwith.com/')">BuiltWith</button>
-<button onclick="openSite('https://whois.domaintools.com/')">DomainTools WHOIS</button>
+  <div class="hero-cta">
+    <button class="btn btn-primary" onclick="openSite('https://urlscan.io')">URLScan</button>
+    <button class="btn btn-primary" onclick="openSite('https://nslookup.io')">NSLookup</button>
+    <button class="btn btn-primary" onclick="openSite('https://subdomainfinder.c99.nl/scans/2026-06-21/target.com')">C99 Subdomain Finder</button>
+    <button class="btn btn-primary" onclick="openSite('https://searchdns.netcraft.com/')">Netcraft DNS Search</button>
+    <button class="btn btn-primary" onclick="openSite('https://web.archive.org/')">Wayback Machine</button>
+    <button class="btn btn-primary" onclick="openSite('https://www.certkit.io/tools/ct-logs/')">CT Logs</button>
+    <button class="btn btn-primary" onclick="openSite('https://builtwith.com/')">BuiltWith</button>
+    <button class="btn btn-primary" onclick="openSite('https://whois.domaintools.com/')">DomainTools WHOIS</button>
+  </div>
 
-<div class="footer">Web Recon Dashboard | ShaifSec</div>
+  <div class="footer section-subtitle">Web Recon Dashboard | ShaifSec</div>
 </div>
 
 <script>
-function openSite(url){
-    window.open(url, "_blank");
+function openSite(url) {
+  window.open(url, "_blank");
 }
 </script>
 </body>
