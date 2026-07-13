@@ -18,5 +18,17 @@
     "thumbnail": "images/thumbnails/api-security.jpeg",
     "excerpt": "Practical steps to harden APIs and reduce the chance of abuse.",
     "content": "Protecting APIs requires strong authentication, rate limiting, input validation, and clear error handling. A structured checklist helps teams review security controls consistently.\n\nUseful checks include reviewing tokens, limiting request volume, and validating both input and output data before it reaches clients."
-  }
+  },
+   {
+  "id": "cross-site-scripting-xss",
+  "title": "Understanding Cross-Site Scripting (XSS)",
+  "category": "Web Security",
+  "date": "2026-07-14",
+  "author": "Shaif Ali",
+  "thumbnail": "images/thumbnails/xss.jpeg",
+  "excerpt": "A detailed introduction to Cross-Site Scripting (XSS), its types, impact, and mitigation techniques for modern web applications.",
+  "content": "Cross-Site Scripting (XSS) is one of the most common web application vulnerabilities. It occurs when an application includes untrusted user input in a web page without proper validation or output encoding, allowing attackers to execute malicious JavaScript in the browser of other users. Because the script runs within the trusted context of the vulnerable website, attackers can access sensitive information, hijack user sessions, perform actions on behalf of victims, modify page content, or redirect users to malicious websites.\n\nStored XSS, also known as Persistent XSS, occurs when malicious input is permanently stored by the application, such as in a database, comment section, support ticket, user profile, or message board. Whenever another user visits the affected page, the stored payload is executed automatically. This type of XSS is often considered the most dangerous because it can affect multiple users without requiring them to click a specially crafted link.\n\nReflected XSS occurs when user-controlled data is immediately reflected in the server response without proper sanitization. Attackers typically deliver a malicious URL through email, social engineering, phishing campaigns, or messaging platforms. When a victim clicks the link, the injected script executes in their browser. Reflected XSS is commonly found in search pages, error messages, and dynamically generated responses.\n\nDOM-Based XSS is a client-side vulnerability that occurs when JavaScript code processes user-controlled data and writes it to the Document Object Model (DOM) using unsafe methods. In this case, the attack payload never reaches the server because the vulnerability exists entirely within the browser. Common causes include the unsafe use of innerHTML, document.write(), eval(), and other DOM manipulation functions.\n\nSuccessful XSS attacks can lead to session hijacking, account takeover, credential theft, unauthorized transactions, phishing attacks, website defacement, keylogging, browser exploitation, and theft of sensitive business data. In modern applications, attackers may also abuse XSS to access API tokens, JWTs stored in local storage, or sensitive information exposed through client-side applications.\n\nTo mitigate XSS vulnerabilities, developers should validate and sanitize all user input, apply context-aware output encoding, use secure frameworks that automatically escape data, implement a strong Content Security Policy (CSP), avoid dangerous JavaScript functions, enable HttpOnly and Secure cookie attributes, and regularly perform security testing based on the OWASP Top 10 guidelines. Combining secure coding practices with regular Web Application Security Testing significantly reduces the risk of Cross-Site Scripting attacks."
+   }
+
+
   ]
