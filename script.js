@@ -3,24 +3,7 @@
    Smooth scrolling, form handling, animations
    ======================================== */
 
-// Mobile Menu Toggle
-const hamburger = document.getElementById('hamburger');
-const navMenu = document.querySelector('.nav-menu');
-
-if (hamburger) {
-  hamburger.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-    hamburger.classList.toggle('active');
-  });
-
-  // Close menu when link is clicked
-  document.querySelectorAll('.nav-menu a').forEach(link => {
-    link.addEventListener('click', () => {
-      navMenu.classList.remove('active');
-      hamburger.classList.remove('active');
-    });
-  });
-}
+// Mobile Menu Toggle: initialized on DOMContentLoaded below
 
 // Contact Form Handling
 const contactForm = document.getElementById('contactForm');
@@ -156,6 +139,53 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Log analytics (optional)
   console.log('Page loaded at:', new Date().toLocaleString());
+
+  // Initialize mobile menu toggle (ensure elements exist)
+  const hamburger = document.getElementById('hamburger');
+  const navMenu = document.querySelector('.nav-menu');
+  if (hamburger && navMenu) {
+    console.log('Initializing mobile menu toggle');
+    hamburger.addEventListener('click', () => {
+      const isActive = navMenu.classList.toggle('active');
+      hamburger.classList.toggle('active');
+      console.log('hamburger clicked', {navActive: navMenu.classList.contains('active'), hamActive: hamburger.classList.contains('active')});
+
+      // Force inline mobile styles in case external CSS is overridden
+      if (window.innerWidth <= 768) {
+        if (isActive) {
+          navMenu.style.display = 'flex';
+          navMenu.style.flexDirection = 'column';
+          navMenu.style.position = 'absolute';
+          navMenu.style.top = '64px';
+          navMenu.style.right = '16px';
+          navMenu.style.background = 'rgba(9,22,40,0.95)';
+          navMenu.style.padding = '12px 16px';
+          navMenu.style.borderRadius = '10px';
+          navMenu.style.boxShadow = '0 8px 24px rgba(0,0,0,0.5)';
+          navMenu.style.zIndex = '2000';
+        } else {
+          navMenu.style.removeProperty('display');
+          navMenu.style.removeProperty('flex-direction');
+          navMenu.style.removeProperty('position');
+          navMenu.style.removeProperty('top');
+          navMenu.style.removeProperty('right');
+          navMenu.style.removeProperty('background');
+          navMenu.style.removeProperty('padding');
+          navMenu.style.removeProperty('border-radius');
+          navMenu.style.removeProperty('box-shadow');
+          navMenu.style.removeProperty('z-index');
+        }
+      }
+    });
+
+    // Close menu when link is clicked
+    navMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+        hamburger.classList.remove('active');
+      });
+    });
+  }
 });
 
 // Counter Animation Function
@@ -184,11 +214,17 @@ window.addEventListener('beforeunload', () => {
 
 // init
 document.addEventListener('DOMContentLoaded', ()=>{
-  document.getElementById('targetDomain').value = 'target.com'; // default target
-  document.body.setAttribute('data-theme','dark');
-  const toggle = document.getElementById('toggleTheme');
-  if(toggle) toggle.textContent = 'Light theme';
+  try {
+    const td = document.getElementById('targetDomain');
+    if (td) td.value = 'target.com'; // default target
 
-  attachDorkHandlers();
-  initThemeToggle();
+    document.body.setAttribute('data-theme','dark');
+    const toggle = document.getElementById('toggleTheme');
+    if (toggle) toggle.textContent = 'Light theme';
+
+    if (typeof attachDorkHandlers === 'function') attachDorkHandlers();
+    if (typeof initThemeToggle === 'function') initThemeToggle();
+  } catch (e) {
+    console.warn('Init handler skipped some steps:', e);
+  }
 });
