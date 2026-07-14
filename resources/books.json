@@ -1,0 +1,14 @@
+[
+  {
+    "title": "XSS Guide",
+    "description": "Security resource covering common XSS concepts and mitigation strategies.",
+    "file": "E-books/xss.pdf",
+    "type": "PDF"
+  },
+  {
+    "title": "Open Redirect Guide",
+    "description": "Security resource covering common open redirect concepts and mitigation strategies.",
+    "file": "E-books/open-redirect.pdf",
+    "type": "PDF"
+  }
+]

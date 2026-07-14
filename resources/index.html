@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resources | ShaifSec</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="../blog/styles.css" />
+  <style>
+    body {
+      background: var(--bg-darker, #02050b);
+      color: var(--text-light);
+      min-height: 100vh;
+    }
+
+    .resources-page {
+      padding: 0 0 80px;
+    }
+
+    .resources-hero {
+      padding: 120px 0 60px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      text-align: left;
+    }
+
+    .resources-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 24px;
+      margin-top: 32px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    }
+
+    .resource-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 18px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .resource-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .resource-item strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 1.05rem;
+    }
+
+    .resource-item span {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 16px;
+      border-radius: 999px;
+      text-decoration: none;
+      background: linear-gradient(135deg, var(--primary-color), #ff4d4d);
+      color: white;
+      font-weight: 600;
+      white-space: nowrap;
+      transition: transform 0.2s ease;
+    }
+
+    .download-btn:hover {
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 640px) {
+      .resource-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar blog-navbar">
+    <div class="container">
+      <div class="nav-brand">
+        <a href="../index.html" class="brand-link"><span class="brand-name">ShaifSec</span></a>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="index.html" class="active">Resources</a></li>
+        <li><a href="../blog/index.html">Blog</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="resources-page">
+    <div class="container">
+      <div class="resources-hero">
+        <h1 class="section-title">E-books</h1>
+        <p class="section-subtitle">Download the available security e-books below.</p>
+      </div>
+
+      <div class="resources-card" id="books-list"></div>
+    </div>
+  </main>
+
+  <script>
+    async function loadBooks() {
+      const container = document.getElementById('books-list');
+      try {
+        const response = await fetch('books.json');
+        const books = await response.json();
+
+        if (!books.length) {
+          container.innerHTML = '<p>No e-books available yet.</p>';
+          return;
+        }
+
+        container.innerHTML = books.map(book => `
+          <div class="resource-item">
+            <div>
+              <strong>${book.title}</strong>
+              <span>${book.type} • ${book.description}</span>
+            </div>
+            <a class="download-btn" href="${book.file}" download="${book.title.toLowerCase().replace(/\s+/g, '-')}.${book.type.toLowerCase()}">Download ${book.type}</a>
+          </div>
+        `).join('');
+      } catch (error) {
+        container.innerHTML = '<p>Unable to load e-books right now.</p>';
+      }
+    }
+
+    loadBooks();
+  </script>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 Shaif Ali | Independent Security Professional. All rights reserved. | Ethical security testing for a safer digital world.</p>
+    </div>
+  </footer>
+</body>
+</html>

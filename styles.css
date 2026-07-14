@@ -207,8 +207,13 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 0.95rem;
 }
 
-.nav-menu a:hover {
+.nav-menu a:hover,
+.nav-menu a.active {
   color: var(--primary-color);
+}
+
+.nav-menu a.active {
+  font-weight: 700;
 }
 
 .hamburger {
@@ -455,7 +460,7 @@ h1, h2, h3, h4, h5, h6 {
    SECTIONS STANDARD SETUP
    ======================================== */
 
-#about, #services, #plans, #why-us, #testimonials, #contact {
+#about, #services, #plans, #why-us, #testimonials, #contact, #resources {
   padding: 100px 0;
   border-top: 1px solid var(--border-color);
 }
@@ -675,6 +680,51 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--secondary-color);
   font-weight: 600;
   font-size: 0.9rem;
+}
+
+/* ========================================
+   RESOURCES SECTION
+   ======================================== */
+
+.resources-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+}
+
+.resource-card {
+  display: block;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 28px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+}
+
+.resource-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255, 45, 45, 0.4);
+  box-shadow: 0 0 25px rgba(255, 45, 45, 0.18);
+}
+
+.resource-icon {
+  font-size: 2.2rem;
+  margin-bottom: 16px;
+  color: var(--primary-color);
+}
+
+.resource-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+  color: var(--text-light);
+}
+
+.resource-card p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
 }
 
 /* ========================================
