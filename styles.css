@@ -49,11 +49,11 @@ body{
     background:
         radial-gradient(circle at top,
         hwb(0 2% 4% / 0.418),
-        transparent 20%),
+        transparent 30%),
 
         radial-gradient(circle at bottom right,
         hwb(0 3% 7% / 0.532),
-        transparent 30%),
+        transparent 40%),
 
         linear-gradient(
         180deg,
