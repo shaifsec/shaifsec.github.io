@@ -11,4 +11,10 @@
     "file": "E-books/open-redirect.pdf",
     "type": "PDF"
   }
+  {
+    "title": "Secure Session Management",
+    "description": "Secure session management protects authentication through secure storage, unpredictable tokens, authorization checks, expiry, and proper termination.",
+    "file": "E-books/Secure_Session_Management_Detailed_Notes.pdf",
+    "type": "PDF"
+  }
 ]
