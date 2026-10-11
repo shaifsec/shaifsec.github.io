@@ -380,13 +380,19 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   justify-content: center;
   position: relative;
+  min-height: 320px;
 }
 
 .hero-logo {
-  width: min(420px, 100%);
+  width: min(620px, 100%);
   height: auto;
   display: block;
   object-fit: contain;
+
+  position: absolute;
+  bottom: 0;
+  margin-left: 25%;
+  transform: translateY(-50%);
 }
 
 .cyber-shield {
