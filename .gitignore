@@ -1,1 +1,10 @@
 *.md
+# Ignore the VS Code configuration folder
+.vscode/
+
+# Ignore environment variables / secrets
+.env
+
+
+# Ignore node_modules (for Node.js projects)
+node_modules/
