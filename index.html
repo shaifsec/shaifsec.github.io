@@ -3,10 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Independent cybersecurity professional. Web Application Security, API Testing, Network Security & Vulnerability Assessments. Shaif Ali - Security Researcher">
-  <meta name="keywords" content="cybersecurity, penetration testing, VAPT, security assessment, vulnerability testing, security researcher">
+  <meta name="description" content="Find web and API security vulnerabilities before attackers do. Shaif Ali provides expert security testing, penetration testing, and actionable remediation guidance.">
+  <meta name="keywords" content="web application security testing, API security testing, penetration testing, VAPT, security researcher">
   <meta name="author" content="Shaif Ali">
-  <title>shaifsec</title>
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ShaifSec">
+  <meta property="og:title" content="ShaifSec | Web &amp; API Security Testing">
+  <meta property="og:description" content="Find web and API security vulnerabilities before attackers do. Get expert testing and clear, actionable remediation guidance.">
+  <meta property="og:url" content="https://shaifsec.com/">
+  <meta property="og:image" content="https://shaifsec.com/banner.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ShaifSec | Web &amp; API Security Testing">
+  <meta name="twitter:description" content="Find web and API security vulnerabilities before attackers do. Get expert testing and clear, actionable remediation guidance.">
+  <meta name="twitter:image" content="https://shaifsec.com/banner.png">
+  <link rel="canonical" href="https://shaifsec.com/">
+  <title>ShaifSec | Web &amp; API Security Testing</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -16,18 +27,18 @@
       <div class="nav-brand">
         <span class="brand-name">ShaifSec</span>
       </div>
-      <ul class="nav-menu">
+      <ul class="nav-menu" id="primary-navigation">
         <li><a href="/">Home</a></li>
         <li><a href="#services">Services</a></li>
         <li><a href="resources/index.html">Resources</a></li>
         <li><a href="blog/index.html">Blog</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <div class="hamburger" id="hamburger">
+      <button class="hamburger" id="hamburger" type="button" aria-label="Toggle navigation" aria-controls="primary-navigation" aria-expanded="false">
         <span></span>
         <span></span>
         <span></span>
-      </div>
+      </button>
     </div>
   </nav>
 
@@ -35,11 +46,11 @@
   <section id="hero" class="hero">
     <div class="hero-wrapper">
       <div class="hero-content">
-        <h1 class="hero-title">Improve Web &amp; API Security</h1>
-        <p class="hero-subtitle">Protect your web applications and APIs with comprehensive security testing. We combine automated vulnerability scanning and expert manual verification to identify OWASP Top 10, OWASP API Top 10, and SANS Top 25 security risks, delivering detailed reports with actionable remediation guidance.</p>
+        <h1 class="hero-title">Find Vulnerabilities Before Attackers Do</h1>
+        <p class="hero-subtitle">Strengthen your security with expert web application and API security testing. Automated vulnerability scanning and hands-on verification help uncover OWASP Top 10, OWASP API Top 10, and SANS Top 25 risks before they affect your business. Get a clear, prioritized report with practical remediation steps to help your team resolve issues and protect customer trust.</p>
         <div class="hero-cta">
           <a href="#contact" class="btn btn-primary">Consult Me</a>
-          <a href="#about" class="btn btn-secondary">whoami</a>
+          <a href="PDF/sample-security-audit.pdf" class="btn btn-secondary">Sample Security Audit</a>
         </div>
 
         <div class="hero-features">
@@ -236,6 +247,29 @@
           <p>My vulnerability assessment services combine both automated scanning and manual verification techniques. I don't just identify vulnerabilities—I prioritize them by risk, provide severity ratings, and deliver actionable remediation guidance so you can systematically address security gaps. My penetration testing services simulate real-world attacks to thoroughly test your defensive capabilities, from reconnaissance through exploitation and comprehensive post-breach analysis.</p>
 
           <p>I also provide security hardening services that go beyond testing. Through configuration review and hardening of systems, applications, and infrastructure, I help you strengthen your security posture and significantly reduce your overall attack surface. Every engagement is treated as a strategic partnership where your security directly impacts your business success. With extensive experience in ethical hacking, penetration testing, and security research, I deliver practical, actionable insights tailored to your organization's unique risk profile and threat landscape.</p>
+        </div>
+        <figure class="about-profile-image">
+          <img src="Images/shaifsec.avif" alt="Shaif Ali, independent security professional">
+          <figcaption>Security Researcher</figcaption>
+        </figure>
+      </div>
+
+      <div class="certifications-list">
+        <div class="certification-card" tabindex="0">
+          <img src="Images/isc2-certified.png" alt="ISC2 Certified in Cybersecurity certification badge">
+          <div class="certification-content">
+            <h3>Certified in Cybersecurity</h3>
+            <p>ISC2</p>
+          </div>
+          <p class="certification-description">Foundational knowledge of security principles, access controls, network security, and incident response.</p>
+        </div>
+        <div class="certification-card" tabindex="0">
+          <img src="Images/iso-27100-certified.png" alt="ISO 27100 certification badge">
+          <div class="certification-content">
+            <h3>ISO 27100</h3>
+            <p>Certified</p>
+          </div>
+          <p class="certification-description">Introduces cybersecurity concepts and principles for understanding and managing cyber risk.</p>
         </div>
       </div>
     </div>

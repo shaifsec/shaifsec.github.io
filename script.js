@@ -116,42 +116,22 @@ document.addEventListener('DOMContentLoaded', () => {
   const navMenu = document.querySelector('.nav-menu');
 
   if (hamburger && navMenu) {
-    hamburger.addEventListener('click', () => {
-      const isActive = navMenu.classList.toggle('active');
-      hamburger.classList.toggle('active');
+    const setMenuOpen = (isOpen) => {
+      navMenu.classList.toggle('active', isOpen);
+      hamburger.classList.toggle('active', isOpen);
+      hamburger.setAttribute('aria-expanded', String(isOpen));
+    };
 
-      if (window.innerWidth <= 768) {
-        if (isActive) {
-          navMenu.style.display = 'flex';
-          navMenu.style.flexDirection = 'column';
-          navMenu.style.position = 'absolute';
-          navMenu.style.top = '64px';
-          navMenu.style.right = '16px';
-          navMenu.style.background = 'rgba(9,22,40,0.95)';
-          navMenu.style.padding = '12px 16px';
-          navMenu.style.borderRadius = '10px';
-          navMenu.style.boxShadow = '0 8px 24px rgba(0,0,0,0.5)';
-          navMenu.style.zIndex = '2000';
-        } else {
-          navMenu.style.removeProperty('display');
-          navMenu.style.removeProperty('flex-direction');
-          navMenu.style.removeProperty('position');
-          navMenu.style.removeProperty('top');
-          navMenu.style.removeProperty('right');
-          navMenu.style.removeProperty('background');
-          navMenu.style.removeProperty('padding');
-          navMenu.style.removeProperty('border-radius');
-          navMenu.style.removeProperty('box-shadow');
-          navMenu.style.removeProperty('z-index');
-        }
-      }
+    hamburger.addEventListener('click', () => {
+      setMenuOpen(!navMenu.classList.contains('active'));
     });
 
     navMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-        hamburger.classList.remove('active');
-      });
+      link.addEventListener('click', () => setMenuOpen(false));
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768) setMenuOpen(false);
     });
   }
 });

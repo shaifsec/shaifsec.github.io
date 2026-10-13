@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A detailed introduction to Cross-Site Scripting (XSS), its types, impact, and mitigation techniques for modern web applications.">
+  <meta name="author" content="Shaif Ali">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="ShaifSec">
+  <meta property="og:title" content="Understanding Cross-Site Scripting (XSS)">
+  <meta property="og:description" content="A detailed introduction to Cross-Site Scripting (XSS), its types, impact, and mitigation techniques for modern web applications.">
+  <meta property="og:url" content="https://shaifsec.com/blog/posts/cross-site-scripting-xss.html">
+  <meta property="og:image" content="https://shaifsec.com/blog/images/thumbnails/xss.jpeg">
+  <meta property="article:published_time" content="2026-07-14">
+  <meta property="article:author" content="Shaif Ali">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Understanding Cross-Site Scripting (XSS)">
+  <meta name="twitter:description" content="A detailed introduction to Cross-Site Scripting (XSS), its types, impact, and mitigation techniques for modern web applications.">
+  <meta name="twitter:image" content="https://shaifsec.com/blog/images/thumbnails/xss.jpeg">
+  <link rel="canonical" href="https://shaifsec.com/blog/posts/cross-site-scripting-xss.html">
+  <title>Understanding Cross-Site Scripting (XSS) | ShaifSec</title>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Understanding Cross-Site Scripting (XSS)","description":"A detailed introduction to Cross-Site Scripting (XSS), its types, impact, and mitigation techniques for modern web applications.","image":"https://shaifsec.com/blog/images/thumbnails/xss.jpeg","datePublished":"2026-07-14","author":{"@type":"Person","name":"Shaif Ali"},"mainEntityOfPage":"https://shaifsec.com/blog/posts/cross-site-scripting-xss.html","publisher":{"@type":"Organization","name":"ShaifSec"}}</script>
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <nav class="navbar blog-navbar">
+    <div class="container">
+      <div class="nav-brand">
+        <a href="../../index.html" class="brand-link"><span class="brand-name">ShaifSec</span></a>
+      </div>
+      <ul class="nav-menu" id="primary-navigation">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../resources/index.html">Resources</a></li>
+        <li><a href="../index.html" class="active">Blog</a></li>
+        <li><a href="../../index.html#contact">Contact</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" type="button" aria-label="Toggle navigation" aria-controls="primary-navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+  <main class="post-page">
+    <div class="container post-layout">
+      <a href="../index.html" class="back-link">← Back to Blog</a>
+      <article class="post-article">
+        <h1>Understanding Cross-Site Scripting (XSS)</h1>
+        <div class="article-meta">
+          <span>Web Security</span>
+          <span>•</span>
+          <time datetime="2026-07-14">2026-07-14</time>
+          <span>•</span>
+          <span>Shaif Ali</span>
+        </div>
+        <h2>What is Cross-Site Scripting (XSS)?</h2><p>Cross-Site Scripting (XSS) is one of the most common web application vulnerabilities. It occurs when an application includes untrusted user input in a web page without proper validation or output encoding, allowing attackers to execute malicious JavaScript in the browser of other users. Because the script runs within the trusted context of the vulnerable website, attackers can steal sensitive information, hijack user sessions, perform actions on behalf of victims, modify page content, or redirect users to malicious websites.</p><br><h2>Types of Cross-Site Scripting (XSS)</h2><br><h3>1. Stored XSS (Persistent XSS)</h3><p>Stored XSS occurs when malicious input is permanently stored by the application, such as in a database, comment section, user profile, support ticket, or forum post. Every user who visits the affected page executes the attacker's payload automatically.</p><p><strong>Common Locations:</strong></p><ul><li>Comments</li><li>User Profiles</li><li>Forums</li><li>Support Tickets</li><li>Message Boards</li></ul><p><strong>Risk:</strong></p><p>High — Can affect every user who views the page.</p><br><h3>2. Reflected XSS (Non-Persistent XSS)</h3><p>Reflected XSS occurs when attacker-controlled input is immediately reflected in the server's response without proper sanitization or output encoding. The victim usually has to click a specially crafted malicious link.</p><p><strong>Common Locations:</strong></p><ul><li>Search Pages</li><li>Error Messages</li><li>Login Forms</li><li>URL Parameters</li></ul><p><strong>Risk:</strong></p><p>Medium to High — Requires user interaction such as clicking a malicious URL.</p><br><h3>3. DOM-Based XSS</h3><p>DOM-Based XSS is a client-side vulnerability where JavaScript processes untrusted input and inserts it into the page using unsafe DOM methods. The payload never reaches the server because the vulnerability exists entirely within the browser.</p><p><strong>Common Causes:</strong></p><ul><li>innerHTML</li><li>document.write()</li><li>eval()</li><li>insertAdjacentHTML()</li><li>location.hash</li></ul><p><strong>Risk:</strong></p><p>High — Often difficult to detect because it occurs entirely on the client side.</p><br><h2>Impact of XSS</h2><ul><li>Session Hijacking</li><li>Account Takeover</li><li>Credential Theft</li><li>Phishing Attacks</li><li>Website Defacement</li><li>Keylogging</li><li>Unauthorized Transactions</li><li>Access to JWTs or API Tokens</li><li>Browser Exploitation</li><li>Sensitive Data Theft</li></ul><br><h2>How to Prevent XSS</h2><ul><li>Validate and sanitize all user input.</li><li>Apply context-aware output encoding.</li><li>Avoid unsafe functions like <code>innerHTML</code>, <code>eval()</code>, and <code>document.write()</code>.</li><li>Use frameworks that automatically escape user data.</li><li>Implement a strong Content Security Policy (CSP).</li><li>Store session cookies with <code>HttpOnly</code> and <code>Secure</code> attributes.</li><li>Perform regular Web Application Security Testing based on the OWASP Top 10.</li></ul><br><h2>Conclusion</h2><p>Cross-Site Scripting remains one of the most dangerous and widely exploited web vulnerabilities. Understanding the differences between Stored, Reflected, and DOM-Based XSS helps developers build secure applications and enables security professionals to identify and remediate these vulnerabilities before attackers can exploit them.</p>
+      </article>
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 Shaif Ali | Ethical security testing for a safer digital world.</p>
+    </div>
+  </footer>
+  <script src="../../script.js"></script>
+</body>
+</html>

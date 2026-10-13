@@ -3,7 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Resources | ShaifSec</title>
+  <meta name="description" content="Browse and download practical cybersecurity resources and e-books on web security, application security, and secure session management.">
+  <meta name="author" content="Shaif Ali">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ShaifSec">
+  <meta property="og:title" content="Cybersecurity Resources | ShaifSec">
+  <meta property="og:description" content="Download practical cybersecurity guides and e-books covering web security and secure application development.">
+  <meta property="og:url" content="https://shaifsec.com/resources/">
+  <meta property="og:image" content="https://shaifsec.com/banner.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Cybersecurity Resources | ShaifSec">
+  <meta name="twitter:description" content="Download practical cybersecurity guides and e-books covering web security and secure application development.">
+  <meta name="twitter:image" content="https://shaifsec.com/banner.png">
+  <link rel="canonical" href="https://shaifsec.com/resources/">
+  <title>Cybersecurity Resources | ShaifSec</title>
   <link rel="stylesheet" href="../styles.css" />
   <link rel="stylesheet" href="../blog/styles.css" />
   <style>
@@ -59,21 +72,7 @@
     }
 
     .download-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 10px 16px;
-      border-radius: 999px;
-      text-decoration: none;
-      background: linear-gradient(135deg, var(--primary-color), #ff4d4d);
-      color: white;
-      font-weight: 600;
       white-space: nowrap;
-      transition: transform 0.2s ease;
-    }
-
-    .download-btn:hover {
-      transform: translateY(-2px);
     }
 
     @media (max-width: 640px) {
@@ -90,13 +89,18 @@
       <div class="nav-brand">
         <a href="../index.html" class="brand-link"><span class="brand-name">ShaifSec</span></a>
       </div>
-      <ul class="nav-menu">
+      <ul class="nav-menu" id="primary-navigation">
         <li><a href="../index.html">Home</a></li>
         <li><a href="../index.html#services">Services</a></li>
         <li><a href="index.html" class="active">Resources</a></li>
         <li><a href="../blog/index.html">Blog</a></li>
         <li><a href="../index.html#contact">Contact</a></li>
       </ul>
+      <button class="hamburger" id="hamburger" type="button" aria-label="Toggle navigation" aria-controls="primary-navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </nav>
 
@@ -129,7 +133,7 @@
               <strong>${book.title}</strong>
               <span>${book.type} • ${book.description}</span>
             </div>
-            <a class="download-btn" href="${book.file}" download="${book.title.toLowerCase().replace(/\s+/g, '-')}.${book.type.toLowerCase()}">Download ${book.type}</a>
+            <a class="btn btn-primary download-btn" href="${book.file}" download="${book.title.toLowerCase().replace(/\s+/g, '-')}.${book.type.toLowerCase()}">Download ${book.type}</a>
           </div>
         `).join('');
       } catch (error) {
@@ -139,6 +143,7 @@
 
     loadBooks();
   </script>
+  <script src="../script.js"></script>
 
   <footer class="footer">
     <div class="container">

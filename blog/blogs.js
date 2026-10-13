@@ -58,7 +58,7 @@ function renderBlogs(blogs) {
       </div>
       <h2>${blog.title}</h2>
       <p>${blog.excerpt}</p>
-      <a href="post.html?id=${blog.id}">Read More →</a>
+      <a href="posts/${encodeURIComponent(blog.id)}.html">Read More →</a>
     </article>
   `).join('');
 }
