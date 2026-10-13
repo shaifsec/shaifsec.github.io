@@ -1,7 +1,7 @@
 const fs = require('node:fs');
 const path = require('node:path');
 
-const siteUrl = 'https://shaifsec.com';
+const siteUrl = 'https://shaifsec.github.io';
 const rootDir = path.resolve(__dirname, '..');
 const blogDir = path.join(rootDir, 'blog');
 const postsDir = path.join(blogDir, 'posts');
