@@ -51,6 +51,13 @@
     </section>
 
     <section class="container">
+      <div class="blog-filters" role="group" aria-label="Filter blog posts by category">
+        <button class="blog-filter is-active" type="button" data-category="all" aria-pressed="true">All</button>
+        <button class="blog-filter" type="button" data-category="CVE" aria-pressed="false">CVE</button>
+        <button class="blog-filter" type="button" data-category="Web Security" aria-pressed="false">Web Security</button>
+        <button class="blog-filter" type="button" data-category="API Security" aria-pressed="false">API Security</button>
+      </div>
+      <p class="blog-empty-state" id="blog-empty-state" aria-live="polite" hidden>No posts found in this category yet.</p>
       <div id="blog-list" class="blog-list"></div>
     </section>
   </main>

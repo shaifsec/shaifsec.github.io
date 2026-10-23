@@ -6,6 +6,7 @@
     "date": "2026-07-10",
     "author": "Shaif Ali",
     "thumbnail": "images/thumbnails/web-security.png",
+    "mediumUrl": "",
     "excerpt": "Learn why web application security is essential for protecting sensitive data, maintaining customer trust, and defending against modern cyber threats.",
     "content": "Web applications have become the backbone of modern businesses, powering online banking, e-commerce, healthcare, education, and countless digital services. Since these applications are publicly accessible over the internet, they are constantly targeted by attackers looking for vulnerabilities to exploit.\n\nA single security weakness can lead to unauthorized access, data breaches, financial loss, service disruption, and damage to an organization's reputation. Common attacks such as SQL Injection, Cross-Site Scripting (XSS), Broken Access Control, and Server-Side Request Forgery (SSRF) continue to affect organizations of all sizes.\n\nProtecting web applications requires a proactive security strategy. Organizations should implement secure coding practices, perform regular Vulnerability Assessments and Penetration Testing (VAPT), keep software and dependencies up to date, enforce strong authentication and authorization, validate user input, and continuously monitor for suspicious activity.\n\nFollowing established security frameworks such as the OWASP Top 10 helps developers identify and mitigate the most critical web application risks before they can be exploited. Security should be integrated throughout the software development lifecycle rather than treated as a one-time activity.\n\nInvesting in web application security not only protects sensitive information but also helps organizations maintain customer trust, comply with industry regulations, reduce financial risk, and ensure business continuity in an increasingly hostile threat landscape."
   },
@@ -16,6 +17,7 @@
     "date": "2026-07-11",
     "author": "Shaif Ali",
     "thumbnail": "images/thumbnails/api-security.jpeg",
+    "mediumUrl": "",
     "excerpt": "Practical steps to harden APIs and reduce the chance of abuse.",
     "content": "Protecting APIs requires strong authentication, rate limiting, input validation, and clear error handling. A structured checklist helps teams review security controls consistently.\n\nUseful checks include reviewing tokens, limiting request volume, and validating both input and output data before it reaches clients."
   },
@@ -26,7 +28,19 @@
     "date": "2026-07-14",
     "author": "Shaif Ali",
     "thumbnail": "images/thumbnails/xss.jpeg",
+    "mediumUrl": "",
     "excerpt": "A detailed introduction to Cross-Site Scripting (XSS), its types, impact, and mitigation techniques for modern web applications.",
     "content": "<h2>What is Cross-Site Scripting (XSS)?</h2><p>Cross-Site Scripting (XSS) is one of the most common web application vulnerabilities. It occurs when an application includes untrusted user input in a web page without proper validation or output encoding, allowing attackers to execute malicious JavaScript in the browser of other users. Because the script runs within the trusted context of the vulnerable website, attackers can steal sensitive information, hijack user sessions, perform actions on behalf of victims, modify page content, or redirect users to malicious websites.</p><br><h2>Types of Cross-Site Scripting (XSS)</h2><br><h3>1. Stored XSS (Persistent XSS)</h3><p>Stored XSS occurs when malicious input is permanently stored by the application, such as in a database, comment section, user profile, support ticket, or forum post. Every user who visits the affected page executes the attacker's payload automatically.</p><p><strong>Common Locations:</strong></p><ul><li>Comments</li><li>User Profiles</li><li>Forums</li><li>Support Tickets</li><li>Message Boards</li></ul><p><strong>Risk:</strong></p><p>High — Can affect every user who views the page.</p><br><h3>2. Reflected XSS (Non-Persistent XSS)</h3><p>Reflected XSS occurs when attacker-controlled input is immediately reflected in the server's response without proper sanitization or output encoding. The victim usually has to click a specially crafted malicious link.</p><p><strong>Common Locations:</strong></p><ul><li>Search Pages</li><li>Error Messages</li><li>Login Forms</li><li>URL Parameters</li></ul><p><strong>Risk:</strong></p><p>Medium to High — Requires user interaction such as clicking a malicious URL.</p><br><h3>3. DOM-Based XSS</h3><p>DOM-Based XSS is a client-side vulnerability where JavaScript processes untrusted input and inserts it into the page using unsafe DOM methods. The payload never reaches the server because the vulnerability exists entirely within the browser.</p><p><strong>Common Causes:</strong></p><ul><li>innerHTML</li><li>document.write()</li><li>eval()</li><li>insertAdjacentHTML()</li><li>location.hash</li></ul><p><strong>Risk:</strong></p><p>High — Often difficult to detect because it occurs entirely on the client side.</p><br><h2>Impact of XSS</h2><ul><li>Session Hijacking</li><li>Account Takeover</li><li>Credential Theft</li><li>Phishing Attacks</li><li>Website Defacement</li><li>Keylogging</li><li>Unauthorized Transactions</li><li>Access to JWTs or API Tokens</li><li>Browser Exploitation</li><li>Sensitive Data Theft</li></ul><br><h2>How to Prevent XSS</h2><ul><li>Validate and sanitize all user input.</li><li>Apply context-aware output encoding.</li><li>Avoid unsafe functions like <code>innerHTML</code>, <code>eval()</code>, and <code>document.write()</code>.</li><li>Use frameworks that automatically escape user data.</li><li>Implement a strong Content Security Policy (CSP).</li><li>Store session cookies with <code>HttpOnly</code> and <code>Secure</code> attributes.</li><li>Perform regular Web Application Security Testing based on the OWASP Top 10.</li></ul><br><h2>Conclusion</h2><p>Cross-Site Scripting remains one of the most dangerous and widely exploited web vulnerabilities. Understanding the differences between Stored, Reflected, and DOM-Based XSS helps developers build secure applications and enables security professionals to identify and remediate these vulnerabilities before attackers can exploit them.</p>"
+  },
+  {
+    "id": "medium-post",
+    "title": "PHP2Shell: AI Uncovers Critical RCE Vulnerabilities Affecting 70% of the Internet",
+    "category": "CVE",
+    "date": "2026-10-23",
+    "author": "Shaif Ali",
+    "thumbnail": "images/thumbnails/php2shell.jpg",
+    "mediumUrl": "https://medium.com/@shaifsec/php2shell-ai-uncovers-critical-rce-vulnerabilities-affecting-70-of-the-internet-aaf4e04d8008",
+    "excerpt": "Two critical vulnerabilities. A CVSS score of 9.2. Potential exposure on a massive scale. The cybersecurity community is facing a serious warning with PHP2Shell, the collective name for two critical memory-safety vulnerabilities in PHP’s core engine. ",
+    "content": ""
   }
 ]

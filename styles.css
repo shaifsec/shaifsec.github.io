@@ -11,28 +11,28 @@
 
 :root{
     /* Brand */
-    --primary-color:#e90808f4;
-    --primary-dark:#e90808f4;
-    --secondary-color:#08e9c4dc;
+    --primary-color:#ef4444;
+    --primary-dark:#b91c1c;
+    --secondary-color:#ff8585;
 
     /* Background */
-    --bg-darker:#02050b;
-    --bg-dark: #081321;
-    --bg-card:rgba(9,22,40,.75);
-    --bg-card-hover: rgba(255, 45, 45, 0.08);
+    --bg-darker:#08090d;
+    --bg-dark:#101116;
+    --bg-card:rgba(22,24,31,.9);
+    --bg-card-hover:rgba(239,68,68,.08);
 
     /* Text */
-    --text-light:#ffffff;
-    --text-muted:#ffffffb1;
+    --text-light:#f5f5f6;
+    --text-muted:#b5b6bf;
 
     /* Borders */
-    --border-color:rgba(248, 248, 248, 0.12);
+    --border-color:rgba(245,245,246,.12);
 
     /* Neon */
-    --glow-blue:0 0 25px rgba(0,229,255,.45);
-    --glow-red:0 0 18px oklch(63.348% 0.25204 28.552 / 0.55);
+    --glow-blue:0 0 25px rgba(239,68,68,.18);
+    --glow-red:0 0 18px rgba(239,68,68,.22);
 
-    --shadow:0 15px 45px rgb(238, 221, 221);
+    --shadow:0 15px 45px rgba(0,0,0,.3);
 
     --radius:18px;
 }
@@ -47,19 +47,8 @@ body{
     overflow-x:hidden;
 
     background:
-        radial-gradient(circle at top,
-        hwb(0 2% 4% / 0.418),
-        transparent 30%),
-
-        radial-gradient(circle at bottom right,
-        hwb(0 3% 7% / 0.532),
-        transparent 40%),
-
-        linear-gradient(
-        180deg,
-        #02050b 30%,
-        #02050b 45%,
-        #02050b 75%);
+        radial-gradient(circle at 82% 14%, rgba(127,29,29,.18), transparent 30%),
+        linear-gradient(180deg, #08090d 0%, #111116 48%, #08090d 100%);
 }
 
 .container {
@@ -82,7 +71,7 @@ h1, h2, h3, h4, h5, h6 {
 .section-title {
   font-size: 2.75rem;
   margin-bottom: 12px;
-  background: linear-gradient(135deg, #ffffff 0%, var(--primary-color) 100%);
+  background: linear-gradient(135deg, #f5f5f6 0%, var(--primary-color) 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -120,29 +109,25 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-primary{
-  background:linear-gradient(135deg,#e9080884,#d6060693);
+  background:linear-gradient(135deg,#ef4444,#b91c1c);
   color:#fff;
-
-  box-shadow:0 0 18px rgba(8, 226, 242, 0);
+  box-shadow:0 8px 24px rgba(239,68,68,.18);
 }
 
 .btn-primary:hover{
   transform:translateY(-3px);
-  box-shadow:
-    0 0 25px lch(70.99% 40.16 231.56 / 0),
-    0 10px 30px hwb(198 2% 7% / 0);
+  box-shadow:0 12px 30px rgba(239,68,68,.3);
 }
 .btn-secondary{
-   background:linear-gradient(135deg,#e9080884,#d6060693);
-  color:#fff;
-
-  border:1px solid rgba(8, 233, 196, 0.35);
+  background:rgba(22,24,31,.78);
+  color:var(--text-light);
+  border:1px solid rgba(239,68,68,.4);
   backdrop-filter:blur(10px);
 }
 
 .btn-secondary:hover{
   border-color:var(--secondary-color);
-  box-shadow:0 0 18px rgba(8, 233, 196, 0.18);
+  box-shadow:0 0 18px rgba(239,68,68,.18);
   transform:translateY(-3px);
 }
 
@@ -154,7 +139,7 @@ h1, h2, h3, h4, h5, h6 {
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgba(0, 0, 0, 0.542);
+  background: rgba(8, 9, 13, 0.9);
   border-bottom: 1px solid var(--border-color);
   z-index: 1000;
   backdrop-filter: blur(12px);
@@ -185,7 +170,7 @@ h1, h2, h3, h4, h5, h6 {
 .logo-icon {
   font-size: 1.6rem;
   color: var(--primary-color);
-  filter: drop-shadow(0 0 8px rgba(0, 255, 157, 0.5));
+  filter: drop-shadow(0 0 8px rgba(239,68,68,.3));
 }
 
 .brand-name {
@@ -273,8 +258,8 @@ h1, h2, h3, h4, h5, h6 {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(0, 255, 157, 0.06);
-  border: 1px solid rgba(0, 255, 157, 0.2);
+  background: rgba(239,68,68,.08);
+  border: 1px solid rgba(239,68,68,.28);
   color: var(--primary-color);
   padding: 6px 14px;
   border-radius: 20px;
@@ -404,7 +389,7 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
   max-width: 340px;
   height: auto;
-  filter: drop-shadow(0 0 40px rgba(0, 255, 157, 0.15));
+  filter: drop-shadow(0 0 40px rgba(239,68,68,.15));
   animation: shield-float 4s ease-in-out infinite;
 }
 
@@ -425,13 +410,13 @@ h1, h2, h3, h4, h5, h6 {
 .shield-inner {
   width: 200px;
   height: 240px;
-  background: linear-gradient(135deg, rgba(5, 8, 17, 0.6) 0%, rgba(13, 22, 41, 0.8) 100%);
-  border: 1px solid rgba(0, 255, 157, 0.3);
+  background: linear-gradient(135deg, rgba(16,17,22,.85), rgba(29,22,26,.92));
+  border: 1px solid rgba(239,68,68,.3);
   border-radius: 24px 24px 60px 60px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(0, 255, 157, 0.1);
+  box-shadow: 0 10px 40px rgba(0,0,0,.5), inset 0 0 20px rgba(239,68,68,.1);
   animation: shield-pulse 3s ease-in-out infinite;
   z-index: 3;
 }
@@ -439,14 +424,14 @@ h1, h2, h3, h4, h5, h6 {
 .shield-lock {
   font-size: 4rem;
   color: var(--primary-color);
-  filter: drop-shadow(0 0 12px rgba(0, 255, 157, 0.4));
+  filter: drop-shadow(0 0 12px rgba(239,68,68,.3));
 }
 
 .shield-ring {
   position: absolute;
   width: 110%;
   height: 110%;
-  border: 1px dashed rgba(0, 200, 255, 0.2);
+  border: 1px dashed rgba(239,68,68,.2);
   border-radius: 50%;
   animation: rotate 20s linear infinite;
 }
@@ -454,13 +439,13 @@ h1, h2, h3, h4, h5, h6 {
 .shield-ring:nth-child(2) {
   width: 125%;
   height: 125%;
-  border: 1px solid rgba(0, 255, 157, 0.1);
+  border: 1px solid rgba(239,68,68,.15);
   animation: rotate 30s linear infinite reverse;
 }
 
 @keyframes shield-pulse {
-  0%, 100% { border-color: rgba(0, 255, 157, 0.3); }
-  50% { border-color: rgba(0, 200, 255, 0.6); }
+  0%, 100% { border-color: rgba(239,68,68,.3); }
+  50% { border-color: rgba(239,68,68,.6); }
 }
 
 @keyframes rotate {
@@ -497,20 +482,20 @@ h1, h2, h3, h4, h5, h6 {
 
 .plan-card:hover {
   transform: translateY(-6px);
-  border-color: rgba(255, 45, 45, 0.4);
-  box-shadow: 0 0 25px rgba(255, 45, 45, 0.18);
+  border-color: rgba(239,68,68,.4);
+  box-shadow: 0 0 25px rgba(239,68,68,.12);
 }
 
 .featured-plan {
-  border-color: rgba(255, 45, 45, 0.45);
-  box-shadow: inset 0 0 0 1px rgba(255, 45, 45, 0.2);
+  border-color: rgba(239,68,68,.45);
+  box-shadow: inset 0 0 0 1px rgba(239,68,68,.2);
 }
 
 .plan-badge {
   position: absolute;
   top: 16px;
   right: 16px;
-  background: linear-gradient(135deg, var(--primary-color), #ff6a00);
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
   color: #fff;
   font-size: 0.75rem;
   font-weight: 700;
@@ -580,10 +565,10 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
   margin: 0;
   padding: 10px;
-  border: 1px solid rgba(233, 8, 8, 0.3);
+  border: 1px solid rgba(239,68,68,.3);
   border-radius: 22px 8px 22px 8px;
-  background: linear-gradient(155deg, rgba(19, 24, 36, 0.92), rgba(2, 5, 11, 0.96));
-  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.42), 0 0 24px rgba(233, 8, 8, 0.1);
+  background: linear-gradient(155deg, rgba(22,24,31,.92), rgba(8,9,13,.96));
+  box-shadow: 0 18px 48px rgba(0,0,0,.42), 0 0 24px rgba(239,68,68,.1);
 }
 
 .about-profile-image img {
@@ -620,7 +605,7 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: center;
   gap: 12px;
   padding: 20px;
-  background: rgba(9, 22, 40, 0.28);
+  background: rgba(22,24,31,.62);
   border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 14px;
   backdrop-filter: blur(12px);
@@ -630,8 +615,8 @@ h1, h2, h3, h4, h5, h6 {
 .certification-card:hover,
 .certification-card:focus-visible {
   transform: translateY(-4px);
-  background: rgba(9, 22, 40, 0.42);
-  border-color: rgba(255, 45, 45, 0.4);
+  background: rgba(30,25,31,.82);
+  border-color: rgba(239,68,68,.4);
 }
 
 .certification-card:focus-visible {
@@ -665,7 +650,7 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: center;
   padding: 24px;
   border-radius: inherit;
-  background: rgba(2, 5, 11, 0.94);
+  background: rgba(8,9,13,.96);
   color: var(--text-light);
   font-size: 0.95rem;
   line-height: 1.5;
@@ -705,10 +690,10 @@ h1, h2, h3, h4, h5, h6 {
 .service-card:hover,
 .benefit-item:hover,
 .testimonial-card:hover {
-  background: rgba(255, 45, 45, 0.08);
-  border-color: rgba(255, 45, 45, 0.4);
+  background: rgba(239,68,68,.07);
+  border-color: rgba(239,68,68,.4);
   transform: translateY(-6px);
-  box-shadow: 0 0 25px rgba(255, 45, 45, 0.25);
+  box-shadow: 0 0 25px rgba(239,68,68,.12);
 }
 
 .service-icon {
@@ -763,7 +748,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .benefit-item:hover, .testimonial-card:hover {
   background: var(--bg-card-hover);
-  border-color: rgba(0, 200, 255, 0.3);
+  border-color: rgba(239,68,68,.35);
   transform: translateY(-4px);
 }
 
@@ -824,8 +809,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .resource-card:hover {
   transform: translateY(-6px);
-  border-color: rgba(255, 45, 45, 0.4);
-  box-shadow: 0 0 25px rgba(255, 45, 45, 0.18);
+  border-color: rgba(239,68,68,.4);
+  box-shadow: 0 0 25px rgba(239,68,68,.12);
 }
 
 .resource-icon {
@@ -858,10 +843,10 @@ h1, h2, h3, h4, h5, h6 {
   display: inline-block;
   margin-bottom: 12px;
   padding: 8px 14px;
-  border: 1px solid rgba(255, 77, 77, 0.25);
+  border: 1px solid rgba(239,68,68,.25);
   border-radius: 999px;
-  background: rgba(255, 77, 77, 0.08);
-  color: #ff6b6b;
+  background: rgba(239,68,68,.08);
+  color: var(--primary-color);
   font-size: 0.85rem;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -874,7 +859,7 @@ h1, h2, h3, h4, h5, h6 {
   gap: 32px;
   margin-top: 28px;
   padding: 32px;
-  background: linear-gradient(135deg, rgba(255, 77, 77, 0.08), rgba(255, 255, 255, 0.02));
+  background: linear-gradient(135deg, rgba(127,29,29,.13), rgba(255,255,255,.02));
   border: 1px solid var(--border-color);
   border-radius: 24px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
@@ -889,8 +874,8 @@ h1, h2, h3, h4, h5, h6 {
 .contact-hero {
   padding: 24px;
   border-radius: 18px;
-  background: rgba(5, 8, 17, 0.7);
-  border: 1px solid rgba(255, 77, 77, 0.2);
+  background: rgba(12,13,18,.8);
+  border: 1px solid rgba(239,68,68,.2);
 }
 
 .contact-hero h3 {
@@ -906,9 +891,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .contact-item {
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(255,255,255,.025);
   border: 1px solid var(--border-color);
-  border-left: 3px solid #ff6b6b;
+  border-left: 3px solid var(--primary-color);
   padding: 20px 22px;
   border-radius: 14px;
   transition: transform 0.2s ease, border-color 0.2s ease;
@@ -916,12 +901,12 @@ h1, h2, h3, h4, h5, h6 {
 
 .contact-item:hover {
   transform: translateY(-2px);
-  border-color: rgba(255, 77, 77, 0.3);
+  border-color: rgba(239,68,68,.3);
 }
 
 .contact-icon {
   font-size: 1.6rem;
-  color: #ff6b6b;
+  color: var(--primary-color);
   margin-bottom: 8px;
 }
 
@@ -938,7 +923,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .contact-item a:hover {
-  color: #ff6b6b;
+  color: var(--primary-color);
 }
 
 .social-links {
@@ -959,9 +944,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .social-link:hover {
-  color: #ff6b6b;
-  border-color: #ff6b6b;
-  background: rgba(255, 77, 77, 0.08);
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+  background: rgba(239,68,68,.08);
 }
 
 /* Form Styles */
@@ -971,12 +956,12 @@ h1, h2, h3, h4, h5, h6 {
   gap: 16px;
   padding: 24px;
   border-radius: 18px;
-  background: rgba(5, 8, 17, 0.7);
-  border: 1px solid rgba(255, 77, 77, 0.16);
+  background: rgba(12,13,18,.8);
+  border: 1px solid rgba(239,68,68,.2);
 }
 
 .form-group input, .form-group textarea {
-  background: rgba(5, 8, 17, 0.6);
+  background: rgba(8,9,13,.72);
   border: 1px solid var(--border-color);
   color: var(--text-light);
   padding: 14px 16px;
@@ -989,9 +974,9 @@ h1, h2, h3, h4, h5, h6 {
 
 .form-group input:focus, .form-group textarea:focus {
   outline: none;
-  border-color: #ff6b6b;
-  background: rgba(5, 8, 17, 0.9);
-  box-shadow: 0 0 15px rgba(255, 77, 77, 0.15);
+  border-color: var(--primary-color);
+  background: rgba(8,9,13,.92);
+  box-shadow: 0 0 15px rgba(239,68,68,.15);
 }
 
 .form-row {
@@ -1071,7 +1056,7 @@ h1, h2, h3, h4, h5, h6 {
     position: absolute;
     top: 64px;
     right: 16px;
-    background: var(--bg-card, rgba(9,22,40,.95));
+    background: var(--bg-card, rgba(23,48,39,.95));
     padding: 12px 16px;
     border-radius: 10px;
     box-shadow: 0 8px 24px rgba(0,0,0,0.5);
