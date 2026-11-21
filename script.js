@@ -27,6 +27,36 @@ function setActiveNavLink() {
   });
 }
 
+function setTheme(theme) {
+  const isDark = theme === 'dark';
+  document.documentElement.dataset.theme = theme;
+
+  const toggle = document.getElementById('theme-toggle');
+  if (toggle) {
+    const nextTheme = isDark ? 'light' : 'dark';
+    toggle.setAttribute('aria-label', `Switch to ${nextTheme} mode`);
+    toggle.title = `Switch to ${nextTheme} mode`;
+  }
+}
+
+const savedTheme = localStorage.getItem('shaifsec-theme');
+const systemTheme = matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+setTheme(savedTheme === 'light' || savedTheme === 'dark' ? savedTheme : systemTheme);
+
+matchMedia('(prefers-color-scheme: light)').addEventListener('change', event => {
+  const preference = localStorage.getItem('shaifsec-theme');
+  if (preference !== 'light' && preference !== 'dark') {
+    setTheme(event.matches ? 'light' : 'dark');
+  }
+});
+
+window.addEventListener('storage', event => {
+  if (event.key === 'shaifsec-theme') {
+    const preference = event.newValue;
+    setTheme(preference === 'light' || preference === 'dark' ? preference : systemTheme);
+  }
+});
+
 function initSmoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -100,6 +130,16 @@ if (contactForm) {
 document.addEventListener('DOMContentLoaded', () => {
   setActiveNavLink();
   initSmoothScroll();
+  setTheme(document.documentElement.dataset.theme || 'dark');
+
+  const themeToggle = document.getElementById('theme-toggle');
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      const nextTheme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+      localStorage.setItem('shaifsec-theme', nextTheme);
+      setTheme(nextTheme);
+    });
+  }
 
   const hero = document.querySelector('.hero-content');
   if (hero) {

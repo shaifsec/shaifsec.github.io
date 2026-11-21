@@ -1,8 +1,6 @@
 body {
   margin: 0;
-  background:
-    radial-gradient(circle at 82% 14%, rgba(127, 29, 29, 0.18), transparent 30%),
-    linear-gradient(180deg, #08090d 0%, #111116 48%, #08090d 100%);
+  background: var(--page-background, #08090d);
   color: var(--text-light, #f5f5f6);
 }
 
@@ -86,7 +84,7 @@ body {
 .blog-card:hover {
   transform: translateY(-4px);
   border-color: rgba(239,68,68,.45);
-  background: rgba(30,22,28,.96);
+  background: var(--bg-card, rgba(30,22,28,.96));
   box-shadow: 0 12px 32px rgba(0,0,0,.24), 0 0 20px rgba(239,68,68,.08);
 }
 
@@ -121,9 +119,9 @@ body {
   top: 16px;
   left: 16px;
   padding: 4px 11px;
-  border: 1px solid rgba(245,245,246,.72);
+  border: 1px solid var(--border-color, rgba(245,245,246,.72));
   border-radius: 999px;
-  background: rgba(8,9,13,.78);
+  background: var(--bg-surface, rgba(8,9,13,.78));
   color: var(--secondary-color, #ff8585);
   font-size: 0.7rem;
   letter-spacing: 0.12em;

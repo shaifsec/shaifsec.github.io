@@ -19,6 +19,14 @@
   <meta name="twitter:image" content="https://shaifsec.github.io/blog/images/thumbnails/xss.jpeg">
   <link rel="canonical" href="https://shaifsec.github.io/blog/posts/cross-site-scripting-xss.html">
   <title>Understanding Cross-Site Scripting (XSS) | ShaifSec</title>
+  <script>
+    (() => {
+      const savedTheme = localStorage.getItem('shaifsec-theme');
+      document.documentElement.dataset.theme = savedTheme === 'light' || savedTheme === 'dark'
+        ? savedTheme
+        : (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+    })();
+  </script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Understanding Cross-Site Scripting (XSS)","description":"A detailed introduction to Cross-Site Scripting (XSS), its types, impact, and mitigation techniques for modern web applications.","image":"https://shaifsec.github.io/blog/images/thumbnails/xss.jpeg","datePublished":"2026-07-14","author":{"@type":"Person","name":"Shaif Ali"},"mainEntityOfPage":"https://shaifsec.github.io/blog/posts/cross-site-scripting-xss.html","publisher":{"@type":"Organization","name":"ShaifSec"}}</script>
   <link rel="stylesheet" href="../../styles.css">
   <link rel="stylesheet" href="../styles.css">
@@ -34,6 +42,10 @@
         <li><a href="../../resources/index.html">Resources</a></li>
         <li><a href="../index.html" class="active">Blog</a></li>
         <li><a href="../../index.html#contact">Contact</a></li>
+        <li><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle color theme" title="Toggle color theme">
+          <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path></svg>
+          <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 15.6A8.5 8.5 0 0 1 8.4 3.8 8.5 8.5 0 1 0 20.2 15.6Z"></path></svg>
+        </button></li>
       </ul>
       <button class="hamburger" id="hamburger" type="button" aria-label="Toggle navigation" aria-controls="primary-navigation" aria-expanded="false">
         <span></span>

@@ -17,11 +17,19 @@
   <meta name="twitter:image" content="https://shaifsec.github.io/banner.png">
   <link rel="canonical" href="https://shaifsec.github.io/resources/">
   <title>Cybersecurity Resources | ShaifSec</title>
+  <script>
+    (() => {
+      const savedTheme = localStorage.getItem('shaifsec-theme');
+      document.documentElement.dataset.theme = savedTheme === 'light' || savedTheme === 'dark'
+        ? savedTheme
+        : (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+    })();
+  </script>
   <link rel="stylesheet" href="../styles.css" />
   <link rel="stylesheet" href="../blog/styles.css" />
   <style>
     body {
-      background: var(--bg-darker, #02050b);
+      background: var(--page-background, var(--bg-darker, #02050b));
       color: var(--text-light);
       min-height: 100vh;
     }
@@ -32,13 +40,13 @@
 
     .resources-hero {
       padding: 120px 0 60px;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid var(--border-color);
       text-align: left;
     }
 
     .resources-card {
       background: var(--bg-card);
-      border: 1px solid rgba(255,255,255,0.1);
+      border: 1px solid var(--border-color);
       border-radius: 16px;
       padding: 24px;
       margin-top: 32px;
@@ -51,7 +59,7 @@
       align-items: center;
       gap: 16px;
       padding: 18px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid var(--border-color);
     }
 
     .resource-item:last-child {
@@ -95,6 +103,10 @@
         <li><a href="index.html" class="active">Resources</a></li>
         <li><a href="../blog/index.html">Blog</a></li>
         <li><a href="../index.html#contact">Contact</a></li>
+        <li><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle color theme" title="Toggle color theme">
+          <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path></svg>
+          <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 15.6A8.5 8.5 0 0 1 8.4 3.8 8.5 8.5 0 1 0 20.2 15.6Z"></path></svg>
+        </button></li>
       </ul>
       <button class="hamburger" id="hamburger" type="button" aria-label="Toggle navigation" aria-controls="primary-navigation" aria-expanded="false">
         <span></span>
