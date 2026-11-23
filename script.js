@@ -4,24 +4,23 @@
    ======================================== */
 
 function setActiveNavLink() {
-  const pathname = window.location.pathname;
-  const hash = window.location.hash;
+  const currentUrl = new URL(window.location.href);
+  const currentPath = currentUrl.pathname.replace(/\/index\.html$/, '/');
 
   document.querySelectorAll('.nav-menu a').forEach(link => {
     const href = link.getAttribute('href') || '';
-    let isActive = false;
-
-    if (pathname.includes('/resources/')) {
-      isActive = href.includes('resources');
-    } else if (pathname.includes('/blog/')) {
-      isActive = href.includes('blog');
-    } else if (pathname === '/' || pathname.endsWith('/index.html')) {
-      if (href === '#hero' && (!hash || hash === '#hero')) {
-        isActive = true;
-      } else if (href === '#contact' && hash === '#contact') {
-        isActive = true;
-      }
-    }
+    const targetUrl = new URL(href, currentUrl);
+    const targetPath = targetUrl.pathname.replace(/\/index\.html$/, '/');
+    const onHomePage = currentPath === '/';
+    const onResourcesPage = currentPath.startsWith('/resources/');
+    const onBlogPage = currentPath.startsWith('/blog/');
+    const isActive = onHomePage
+      ? targetPath === '/' && (targetUrl.hash || '#hero') === (currentUrl.hash || '#hero')
+      : onResourcesPage
+        ? targetPath === '/resources/'
+        : onBlogPage
+          ? targetPath === '/blog/'
+          : false;
 
     link.classList.toggle('active', isActive);
   });
@@ -68,6 +67,15 @@ function initSmoothScroll() {
       e.preventDefault();
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       window.history.pushState(null, '', targetId);
+      setActiveNavLink();
+    });
+  });
+
+  document.querySelectorAll('.nav-menu a[href*="index.html#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (event) {
+      event.preventDefault();
+      const destination = new URL(this.getAttribute('href'), window.location.href);
+      window.location.assign(`${destination.pathname}${destination.search}${destination.hash}`);
     });
   });
 }
@@ -100,6 +108,8 @@ if (contactForm) {
       name: formData.get('name'),
       email: formData.get('email'),
       company: formData.get('company'),
+      url: formData.get('url'),
+      service: formData.get('service'),
       message: formData.get('message')
     };
 
@@ -108,7 +118,7 @@ if (contactForm) {
       return;
     }
 
-    const mailtoLink = `mailto:shaifsec@gmail.com?subject=Security Assessment Inquiry from ${encodeURIComponent(data.name)}&body=Name: ${encodeURIComponent(data.name)}%0AEmail: ${encodeURIComponent(data.email)}%0ACompany: ${encodeURIComponent(data.company)}%0A%0AMessage:%0A${encodeURIComponent(data.message)}`;
+    const mailtoLink = `mailto:shaifsec@gmail.com?subject=${encodeURIComponent(`Security Assessment Inquiry - ${data.service}`)}&body=Name: ${encodeURIComponent(data.name)}%0AEmail: ${encodeURIComponent(data.email)}%0ACompany: ${encodeURIComponent(data.company || 'Not provided')}%0AWebsite / Application: ${encodeURIComponent(data.url || 'Not provided')}%0AService: ${encodeURIComponent(data.service)}%0A%0AMessage:%0A${encodeURIComponent(data.message)}`;
 
     window.location.href = mailtoLink;
     this.reset();
@@ -116,8 +126,7 @@ if (contactForm) {
     const btn = this.querySelector('button[type="submit"]');
     if (btn) {
       const originalText = btn.textContent;
-      btn.textContent = 'Message Sent!';
-      btn.style.background = '#00ff00';
+      btn.textContent = 'Opening Email';
 
       setTimeout(() => {
         btn.textContent = originalText;
@@ -155,6 +164,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const hamburger = document.getElementById('hamburger');
   const navMenu = document.querySelector('.nav-menu');
 
+  document.querySelectorAll('.service-link[data-service]').forEach(link => {
+    link.addEventListener('click', () => {
+      const select = document.getElementById('contact-service');
+      if (select) select.value = link.dataset.service;
+    });
+  });
+
   if (hamburger && navMenu) {
     const setMenuOpen = (isOpen) => {
       navMenu.classList.toggle('active', isOpen);
@@ -170,8 +186,21 @@ document.addEventListener('DOMContentLoaded', () => {
       link.addEventListener('click', () => setMenuOpen(false));
     });
 
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && navMenu.classList.contains('active')) {
+        setMenuOpen(false);
+        hamburger.focus();
+      }
+    });
+
+    document.addEventListener('click', event => {
+      if (!navMenu.contains(event.target) && !hamburger.contains(event.target)) {
+        setMenuOpen(false);
+      }
+    });
+
     window.addEventListener('resize', () => {
-      if (window.innerWidth > 768) setMenuOpen(false);
+      if (window.innerWidth > 1280) setMenuOpen(false);
     });
   }
 });

@@ -8,16 +8,16 @@
   <meta name="author" content="Shaif Ali">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="ShaifSec">
-  <meta property="og:title" content="Shaifsec | Security Researcher">
+  <meta property="og:title" content="ShaifSec | Independent Security Professional">
   <meta property="og:description" content="Find web and API security vulnerabilities before attackers do. Get expert testing and clear, actionable remediation guidance.">
-  <meta property="og:url" content="https://shaifsec.github.io/">
-  <meta property="og:image" content="https://shaifsec.github.io/banner.png">
+  <meta property="og:url" content="https://shaifsec.in/">
+  <meta property="og:image" content="https://shaifsec.in/banner.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Shaifsec | Security Researcher">
+  <meta name="twitter:title" content="ShaifSec | Independent Security Professional">
   <meta name="twitter:description" content="Find web and API security vulnerabilities before attackers do. Get expert testing and clear, actionable remediation guidance.">
-  <meta name="twitter:image" content="https://shaifsec.github.io/banner.png">
-  <link rel="canonical" href="https://shaifsec.github.io/">
-  <title>Shaifsec | Security Researcher</title>
+  <meta name="twitter:image" content="https://shaifsec.in/banner.png">
+  <link rel="canonical" href="https://shaifsec.in/">
+  <title>ShaifSec | Independent Security Professional</title>
   <script>
     (() => {
       const savedTheme = localStorage.getItem('shaifsec-theme');
@@ -26,20 +26,22 @@
         : (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
     })();
   </script>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=20261124-native-cursor">
 </head>
 <body>
   <!-- Navigation -->
   <nav class="navbar">
     <div class="container">
       <div class="nav-brand">
-        <span class="brand-name">ShaifSec</span>
+        <a class="brand-link" href="#hero">Shaif<span class="brand-accent">Sec</span></a>
       </div>
       <ul class="nav-menu" id="primary-navigation">
-        <li><a href="/">Home</a></li>
+        <li><a href="#hero">Home</a></li>
         <li><a href="#services">Services</a></li>
+        <li><a href="#methodology">Methodology</a></li>
         <li><a href="resources/index.html">Resources</a></li>
         <li><a href="blog/index.html">Blog</a></li>
+        <li><a href="#about">About</a></li>
         <li><a href="#contact">Contact</a></li>
         <li><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle color theme" title="Toggle color theme">
           <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path></svg>
@@ -58,11 +60,11 @@
   <section id="hero" class="hero">
     <div class="hero-wrapper">
       <div class="hero-content">
-        <h1 class="hero-title">Find Vulnerabilities Before Attackers Do</h1>
+        <h1 class="hero-title">Find Vulnerabilities <span>Before Attackers Do</span></h1>
         <p class="hero-subtitle">Strengthen your security with expert web application and API security testing. Automated vulnerability scanning and hands-on verification help uncover OWASP Top 10, OWASP API Top 10, and SANS Top 25 risks before they affect your business. Get a clear, prioritized report with practical remediation steps to help your team resolve issues and protect customer trust.</p>
         <div class="hero-cta">
           <a href="#contact" class="btn btn-primary">Consult Me</a>
-          <a href="PDF/sample-security-audit.pdf" class="btn btn-secondary">Sample Security Audit</a>
+          <a href="#sample-audit" class="btn btn-secondary">View Sample Audit</a>
         </div>
 
         <div class="hero-features">
@@ -79,7 +81,6 @@
             <span class="feature-text">Detailed Reports</span>
           </div>
         </div>
-        <br>
         <!-- Advanced Stats -->
         <div class="hero-stats">
           <div class="stat-box">
@@ -111,7 +112,7 @@
 
       <div class="services-grid">
         <article class="service-card">
-          <div class="service-icon">🛡️</div>
+          <div class="service-icon" aria-hidden="true">01</div>
           <h3>Web Security</h3>
           <p>Identify vulnerabilities in websites, SaaS platforms, and web apps before attackers do. I test for authentication flaws, injection issues, broken access control, and risky business logic.</p>
           <ul class="service-features">
@@ -119,10 +120,11 @@
             <li>✔ XSS, CSRF, SSRF review</li>
             <li>✔ Secure configuration hardening</li>
           </ul>
+          <a class="service-link" href="#contact" data-service="Web Security">Discuss This Service <span aria-hidden="true">→</span></a>
         </article>
 
         <article class="service-card">
-          <div class="service-icon">🧩</div>
+          <div class="service-icon" aria-hidden="true">02</div>
           <h3>API Security</h3>
           <p>Review REST and GraphQL services to expose token abuse, authorization gaps, data exposure, rate-limit weaknesses, and insecure endpoint design.</p>
           <ul class="service-features">
@@ -130,10 +132,11 @@
             <li>✔ Rate limiting analysis</li>
             <li>✔ Business logic validation</li>
           </ul>
+          <a class="service-link" href="#contact" data-service="API Security">Discuss This Service <span aria-hidden="true">→</span></a>
         </article>
 
         <article class="service-card">
-          <div class="service-icon">🕸️</div>
+          <div class="service-icon" aria-hidden="true">03</div>
           <h3>Network Security</h3>
           <p>Assess internal and external network exposure through segmentation review, service enumeration, firewall checks, and infrastructure hardening recommendations.</p>
           <ul class="service-features">
@@ -141,21 +144,23 @@
             <li>✔ Port/service enumeration</li>
             <li>✔ Attack surface reduction</li>
           </ul>
+          <a class="service-link" href="#contact" data-service="Network Security">Discuss This Service <span aria-hidden="true">→</span></a>
         </article>
 
         <article class="service-card">
-          <div class="service-icon">🔍</div>
+          <div class="service-icon" aria-hidden="true">04</div>
           <h3>Vulnerability Assessment</h3>
-          <p>Assess your websites, APIs, and infrastructure to identify and prioritize security weaknesses before attackers do. Get clear findings with risk ratings and practical remediation guidance.</p>
+          <p>Scan websites, APIs, networks, and infrastructure to detect and verify vulnerabilities, including known CVEs, missing security patches, and software supply-chain risks. Receive prioritized findings with practical remediation guidance.</p>
           <ul class="service-features">
             <li>✔ OWASP-aligned security checks</li>
             <li>✔ Risk-ranked findings</li>
             <li>✔ Remediation guidance</li>
           </ul>
+          <a class="service-link" href="#contact" data-service="Vulnerability Assessment">Discuss This Service <span aria-hidden="true">→</span></a>
         </article>
 
         <article class="service-card">
-          <div class="service-icon">☁️</div>
+          <div class="service-icon" aria-hidden="true">05</div>
           <h3>Cloud Security</h3>
           <p>Audit cloud-native systems for identity issues, exposed storage, insecure IAM roles, misconfigured services, and data leakage risks.</p>
           <ul class="service-features">
@@ -163,10 +168,11 @@
             <li>✔ Storage & network checks</li>
             <li>✔ Cloud hardening guidance</li>
           </ul>
+          <a class="service-link" href="#contact" data-service="Cloud Security">Discuss This Service <span aria-hidden="true">→</span></a>
         </article>
 
         <article class="service-card">
-          <div class="service-icon">🌐</div>
+          <div class="service-icon" aria-hidden="true">06</div>
           <h3>Threat Modeling</h3>
           <p>Map business-critical assets, attacker paths, and trust boundaries to prioritize the most damaging attack scenarios and remediation steps.</p>
           <ul class="service-features">
@@ -174,7 +180,70 @@
             <li>✔ Risk prioritization</li>
             <li>✔ Control design review</li>
           </ul>
+          <a class="service-link" href="#contact" data-service="Threat Modeling">Discuss This Service <span aria-hidden="true">→</span></a>
         </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Security Testing Process -->
+  <section id="methodology" class="methodology">
+    <div class="container">
+      <h2 class="section-title">Our Security Testing Process</h2>
+      <p class="section-subtitle">A transparent, scoped approach that keeps your team informed from authorization through remediation.</p>
+      <div class="process-grid" aria-label="Security testing process">
+        <article class="process-step"><span>01</span><h3>Scope &amp; Authorization</h3><p>Agree on systems, targets, testing windows, constraints, and written authorization before work begins.</p></article>
+        <article class="process-step"><span>02</span><h3>Reconnaissance</h3><p>Map the approved attack surface and identify exposed applications, services, and trust boundaries.</p></article>
+        <article class="process-step"><span>03</span><h3>Security Testing</h3><p>Combine automated coverage with focused manual testing tailored to your environment and risk profile.</p></article>
+        <article class="process-step"><span>04</span><h3>Vulnerability Verification</h3><p>Validate findings, assess business impact, and remove false positives before reporting.</p></article>
+        <article class="process-step"><span>05</span><h3>Reporting &amp; Remediation</h3><p>Deliver an executive summary and prioritized technical findings with practical remediation guidance.</p></article>
+        <article class="process-step"><span>06</span><h3>Retesting</h3><p>Where applicable, verify approved fixes and confirm that previously identified issues have been resolved.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sample Security Assessment -->
+  <section id="sample-audit" class="sample-audit">
+    <div class="container">
+      <div class="sample-layout">
+        <div class="sample-copy">
+          <p class="eyebrow">Sample deliverable</p>
+          <h2 class="section-title">Sample Security Assessment</h2>
+          <p>Reports are designed for both decision-makers and technical teams, with clear context, evidence, and reproducible remediation steps.</p>
+          <ul class="sample-list">
+            <li>Executive Summary</li>
+            <li>Assessment Scope</li>
+            <li>Vulnerability Summary</li>
+            <li>Severity Ratings</li>
+            <li>Technical Findings</li>
+            <li>Evidence &amp; Remediation Recommendations</li>
+          </ul>
+          <a href="PDF/sample-security-audit.pdf" class="btn btn-primary" target="_blank" rel="noopener">View Sample Report</a>
+        </div>
+        <div class="report-preview" role="img" aria-label="Preview of a professional security assessment report">
+          <div class="report-header"><span>SHAIFSEC / SECURITY ASSESSMENT</span><strong>SAMPLE</strong></div>
+          <div class="report-meta"><div><small>Document</small><b>Executive Summary</b></div><div><small>Status</small><b>Sanitized</b></div></div>
+          <div class="report-summary">
+            <div><b>Scope</b><span>Approved targets only</span></div>
+            <div><b>Risk Rating</b><span>Prioritized findings</span></div>
+            <div><b>Delivery</b><span>Evidence-led report</span></div>
+          </div>
+          <div class="report-lines"><i></i><i></i><i></i><i></i></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Latest security writeups -->
+  <section id="writeups" class="portfolio">
+    <div class="container">
+      <h2 class="section-title">Security Writeup</h2>
+      <p class="section-subtitle">Latest security articles, automatically collected from the blog.</p>
+      <div class="portfolio-grid" id="latest-content" aria-live="polite">
+        <p class="content-status">Loading latest writeups…</p>
+      </div>
+      <div class="writeups-links">
+        <a class="service-link" href="blog/index.html">Browse all blog writeups <span aria-hidden="true">→</span></a>
       </div>
     </div>
   </section>
@@ -201,6 +270,8 @@
               <a href="https://linkedin.com/in/shaifsec" target="_blank" class="social-link">LinkedIn</a>
               <a href="https://github.com/shaifsec" target="_blank" class="social-link">GitHub</a>
               <a href="https://twitter.com/shaifsec" target="_blank" class="social-link">Twitter</a>
+              <a href="https://facebook.com/shaifsec" target="_blank" rel="noopener" class="social-link">Facebook</a>
+              <a href="https://youtube.com/@shaifsec" target="_blank" rel="noopener" class="social-link">YouTube</a>
             </div>
           </div>
 
@@ -214,20 +285,43 @@
         <form class="contact-form" id="contactForm">
           <div class="form-row">
             <div class="form-group">
-              <input type="email" name="email" placeholder="Your Email" required>
+              <label for="contact-name">Name</label>
+              <input id="contact-name" type="text" name="name" placeholder="Your Name" autocomplete="name" required>
+            </div>
+            <div class="form-group">
+              <label for="contact-email">Email</label>
+              <input id="contact-email" type="email" name="email" placeholder="you@company.com" autocomplete="email" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="contact-company">Company <span>(optional)</span></label>
+              <input id="contact-company" type="text" name="company" placeholder="Company name" autocomplete="organization">
+            </div>
+            <div class="form-group">
+              <label for="contact-url">Website / Application URL</label>
+              <input id="contact-url" type="text" name="url" placeholder="https://example.com">
             </div>
           </div>
 
           <div class="form-group">
-            <input type="text" name="name" placeholder="Your Name" required>
+            <label for="contact-service">Service</label>
+            <select id="contact-service" name="service" required>
+              <option value="">Select a service</option>
+              <option>Web Security</option>
+              <option>API Security</option>
+              <option>Network Security</option>
+              <option>Vulnerability Assessment</option>
+              <option>Cloud Security</option>
+              <option>Threat Modeling</option>
+              <option>Other / Custom Assessment</option>
+            </select>
           </div>
 
           <div class="form-group">
-            <input type="text" name="company" placeholder="Company (Optional)">
-          </div>
-
-          <div class="form-group">
-            <textarea name="message" placeholder="Describe your security concerns or testing requirements..." rows="5" required></textarea>
+            <label for="contact-message">Message</label>
+            <textarea id="contact-message" name="message" placeholder="Describe your security concerns or testing requirements..." rows="5" required></textarea>
           </div>
 
           <div class="form-note">
@@ -262,7 +356,7 @@
         </div>
         <figure class="about-profile-image">
           <img src="Images/shaifsec.avif" alt="Shaif Ali, independent security professional">
-          <figcaption>Security Researcher</figcaption>
+          <figcaption>Security Consultant</figcaption>
         </figure>
       </div>
 
@@ -290,10 +384,42 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      <p>&copy; 2026 Shaif Ali | Independent Security Professional. All rights reserved. | Ethical security testing for a safer digital world.</p>
+      <div class="footer-cta">
+        <div>
+          <span class="footer-kicker">SECURITY, STARTING WITH A CONVERSATION</span>
+          <h2>Ready to strengthen your security?</h2>
+        </div>
+        <a class="footer-cta-link" href="mailto:shaifsec@gmail.com">Let’s talk <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="footer-grid">
+        <div>
+          <a class="footer-brand" href="#hero">Shaif<span class="brand-accent">Sec</span></a>
+          <p>Independent security professional focused on practical web, API, and infrastructure security testing.</p>
+        </div>
+        <div>
+          <h3>Explore</h3>
+          <a href="#services">Services</a>
+          <a href="#methodology">Methodology</a>
+          <a href="#writeups">Security Writeup</a>
+          <a href="blog/index.html">Blog</a>
+        </div>
+        <div>
+          <h3>Contact</h3>
+          <a href="mailto:shaifsec@gmail.com">shaifsec@gmail.com</a>
+          <a href="https://linkedin.com/in/shaifsec" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://github.com/shaifsec" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://facebook.com/shaifsec" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://youtube.com/@shaifsec" target="_blank" rel="noopener">YouTube</a>
+        </div>
+      </div>
+      <p class="footer-copy">
+        &copy; 2026 Shaif Ali — Independent Security Consultant.
+        <span class="footer-note">All rights reserved · Advancing ethical security for a safer digital world.</span>
+      </p>
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script.js?v=20261124"></script>
+  <script src="writeups.js?v=20261124"></script>
 </body>
 </html>
