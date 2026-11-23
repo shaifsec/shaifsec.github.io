@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://shaifsec.github.io/sitemap.xml
+Sitemap: https://shaifsec.in/sitemap.xml

@@ -1,7 +1,7 @@
 const fs = require('node:fs');
 const path = require('node:path');
 
-const siteUrl = 'https://shaifsec.github.io';
+const siteUrl = 'https://shaifsec.in';
 const rootDir = path.resolve(__dirname, '..');
 const blogDir = path.join(rootDir, 'blog');
 const postsDir = path.join(blogDir, 'posts');
@@ -28,6 +28,8 @@ function renderContent(content) {
 fs.mkdirSync(postsDir, { recursive: true });
 
 for (const post of blogs) {
+  if (post.mediumUrl && !post.content) continue;
+
   if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(post.id)) {
     throw new Error(`Invalid blog post id: ${post.id}`);
   }
@@ -55,6 +57,7 @@ for (const post of blogs) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="${escapeHtml(description)}">
   <meta name="author" content="${escapeHtml(post.author || 'Shaif Ali')}">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="ShaifSec">
   <meta property="og:title" content="${escapeHtml(post.title)}">
@@ -125,7 +128,9 @@ const staticUrls = [
   `${siteUrl}/`,
   `${siteUrl}/resources/`,
   `${siteUrl}/blog/`,
-  ...blogs.map(post => `${siteUrl}/blog/posts/${post.id}.html`)
+  ...blogs
+    .filter(post => post.content && (!post.mediumUrl || post.content))
+    .map(post => `${siteUrl}/blog/posts/${post.id}.html`)
 ];
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${staticUrls.map(url => `  <url><loc>${url}</loc></url>`).join('\n')}\n</urlset>\n`;
 fs.writeFileSync(path.join(rootDir, 'sitemap.xml'), sitemap);

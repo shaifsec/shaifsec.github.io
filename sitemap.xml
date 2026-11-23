@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://shaifsec.github.io/</loc></url>
-  <url><loc>https://shaifsec.github.io/resources/</loc></url>
-  <url><loc>https://shaifsec.github.io/blog/</loc></url>
-  <url><loc>https://shaifsec.github.io/blog/posts/why-protect-web-applications.html</loc></url>
-  <url><loc>https://shaifsec.github.io/blog/posts/api-security-checklist.html</loc></url>
-  <url><loc>https://shaifsec.github.io/blog/posts/cross-site-scripting-xss.html</loc></url>
+  <url><loc>https://shaifsec.in/</loc></url>
+  <url><loc>https://shaifsec.in/resources/</loc></url>
+  <url><loc>https://shaifsec.in/blog/</loc></url>
+  <url><loc>https://shaifsec.in/blog/posts/why-protect-web-applications.html</loc></url>
+  <url><loc>https://shaifsec.in/blog/posts/api-security-checklist.html</loc></url>
+  <url><loc>https://shaifsec.in/blog/posts/cross-site-scripting-xss.html</loc></url>
 </urlset>
