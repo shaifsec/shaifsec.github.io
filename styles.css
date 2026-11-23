@@ -36,6 +36,7 @@
     /* Text */
     --text-light:#f5f5f6;
     --text-muted:#b5b6bf;
+    --footer-brand-color:#b8bbc4;
 
     /* Borders */
     --border-color:rgba(245,245,246,.12);
@@ -72,6 +73,7 @@
   --bg-card-hover:rgba(239,68,68,.06);
   --text-light:#20232b;
   --text-muted:#5e6470;
+  --footer-brand-color:#555b65;
   --border-color:rgba(32,35,43,.14);
   --shadow:0 15px 45px rgba(32,35,43,.1);
   color-scheme:light;
@@ -1532,15 +1534,18 @@ h1, h2, h3, h4, h5, h6 {
 .footer-brand {
   display: inline-block;
   margin-bottom: 12px;
-  color: var(--text-light);
+  color: var(--footer-brand-color);
   font-size: 1.35rem;
   font-weight: 800;
   letter-spacing: -0.04em;
   text-decoration: none;
+  transition: none;
 }
 
-.footer-brand {
-  letter-spacing: -0.04em;
+.footer-brand .brand-accent,
+.footer-grid a.footer-brand:hover {
+  color: var(--footer-brand-color);
+  transform: none;
 }
 
 .footer-grid p {

@@ -82,6 +82,7 @@ function initSmoothScroll() {
 
 function animateCounter(element, target) {
   let current = 0;
+  const suffix = element.getAttribute('data-suffix') || '';
   const increment = target / 50;
   const duration = 2000;
   const stepTime = duration / 50;
@@ -89,10 +90,10 @@ function animateCounter(element, target) {
   const timer = setInterval(() => {
     current += increment;
     if (current >= target) {
-      element.textContent = target;
+      element.textContent = `${target}${suffix}`;
       clearInterval(timer);
     } else {
-      element.textContent = Math.floor(current);
+      element.textContent = `${Math.floor(current)}${suffix}`;
     }
   }, stepTime);
 }
@@ -206,3 +207,12 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 window.addEventListener('hashchange', setActiveNavLink);
+
+const navigationEntry = performance.getEntriesByType('navigation')[0];
+if (navigationEntry?.type === 'reload') {
+  history.scrollRestoration = 'manual';
+  history.replaceState(null, '', `${location.pathname}${location.search}`);
+  window.addEventListener('pageshow', () => {
+    requestAnimationFrame(() => requestAnimationFrame(() => window.scrollTo(0, 0)));
+  }, { once: true });
+}
